@@ -1,5 +1,0 @@
-dependencies:
-  powerfeather/powerfeather-sdk:
-    version: '*'
-description: PowerFeather SDK Supply and Battery Info Example
-version: 1.0.0

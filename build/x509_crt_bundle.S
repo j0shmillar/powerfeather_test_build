@@ -1,4 +1,4 @@
-/* * Data converted from /Users/joshmillar/Desktop/phd/PowerFeather/esp32-i2s-mic-test/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)

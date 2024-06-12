@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/joshmillar/Desktop/phd/PowerFeather/esp32-i2s-mic-test/build/esp-idf/mbedtls/mbedtls/cmake_install.cmake")
+  include("/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/esp-idf/mbedtls/mbedtls/cmake_install.cmake")
 endif()
 
