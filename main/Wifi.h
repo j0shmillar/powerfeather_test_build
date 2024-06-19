@@ -6,8 +6,8 @@
 #include <esp_event.h>
 #include <esp_err.h>
 
-#define WIFI_SSID "CommunityFibre10Gb_A0931"
-#define WIFI_PASS "iz100s30uv"
+#define WIFI_SSID "iPhone (101)"
+#define WIFI_PASS "password"
 #define WIFI_MAX_RETRY 5
 #define WIFI_CONNECTED_BIT BIT0
 #define WIFI_FAIL_BIT BIT1

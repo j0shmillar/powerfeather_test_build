@@ -8,7 +8,8 @@ const port = 5003;
 app.use(
   bodyParser.raw({
     // inflate: true,
-    type: '*/*'
+    type: '*/*',
+    limit: '50mb'
   })
 );
 

@@ -1,0 +1,74 @@
+[0;32mI (255) heap_init: At 3FCE9710 len 00005724 (21 ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40048839
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x1790
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xcf0
+load:0x403cb700,len:0x2d88
+entry 0x403c8928
+[0;32mI (26) boot: ESP-IDF v5.4-dev-826-g8760e6d2a7 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 17 2024 22:24:44[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v0.2[0m
+[0;32mI (35) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (40) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (45) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (49) boot: Enabling RNG early entropy source...[0m
+[0;32mI (55) boot: Partition Table:[0m
+[0;32mI (58) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (66) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (73) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (81) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (88) boot: End of partition table[0m
+[0;32mI (92) esp_image: segment 0: paddr=00010020 vaddr=3c030020 size=0ef70h ( 61296) map[0m
+[0;32mI (112) esp_image: segment 1: paddr=0001ef98 vaddr=3fc93d00 size=01080h (  4224) load[0m
+[0;32mI (113) esp_image: segment 2: paddr=00020020 vaddr=42000020 size=2856ch (165228) map[0m
+[0;32mI (147) esp_image: segment 3: paddr=00048594 vaddr=3fc94d80 size=02b70h ( 11120) load[0m
+[0;32mI (150) esp_image: segment 4: paddr=0004b10c vaddr=40374000 size=0fc58h ( 64600) load[0m
+[0;32mI (174) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (174) boot: Disabling RNG early entropy source...[0m
+[0;32mI (185) cpu_start: Multicore app[0m
+[0;32mI (195) cpu_start: Pro cpu start user code[0m
+[0;32mI (195) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (195) app_init: Application information:[0m
+[0;32mI (198) app_init: Project name:     supply_and_battery_info[0m
+[0;32mI (204) app_init: App version:      1[0m
+[0;32mI (208) app_init: Compile time:     Jun 17 2024 22:26:40[0m
+[0;32mI (214) app_init: ELF file SHA256:  02a4be971...[0m
+[0;32mI (220) app_init: ESP-IDF:          v5.4-dev-826-g8760e6d2a7[0m
+[0;32mI (226) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (231) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (236) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (241) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (248) heap_init: At 3FC98300 len 00051410 (325 KiB): RAM[0m
+[0;32mI (254) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (260) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (266) heap_init: At 600FE100 len 00001EE8 (7 KiB): RTCRAM[0m
+[0;32mI (273) spi_flash: detected chip: gd[0m
+[0;32mI (277) spi_flash: flash io: dio[0m
+[0;33mW (281) spi_flash: Detected size(8192k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (294) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (304) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (311) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (319) main_task: Started on CPU0[0m
+[0;32mI (329) main_task: Calling app_main()[0m
+[0;32mI (329) gpio: GPIO[0]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (339) gpio: GPIO[46]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (1349) PowerFeather::Mainboard: Termination current set to 50 mA.[0m
+[0;32mI (1349) gpio: GPIO[38]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+Board initialized successfully
+
+[0;32mI (1349) s3 ll_cam: DMA Channel=0[0m
+[0;32mI (1359) cam_hal: cam init ok[0m
+[0;32mI (1359) sccb: pin_sda 35 pin_scl 36[0m
+[0;32mI (1369) sccb: sccb_i2c_port=2[0m
+[0;31mE (1369) i2c: i2c_set_pin(965): i2c number error[0m
+[0;31mE (1369) camera: sccb init err[0m
+[0;31mE (1379) camera: Camera probe failed with error 0x102(ESP_ERR_INVALID_ARG)[0m
+[0;31mE (1389) gdma: gdma_disconnect(314): no peripheral is connected to the channel[0m
+[0;31mE (1389) i2c: i2c_driver_delete(480): i2c number error[0m
+[0;31mE (1399) powerfeather: Camera Init Failed[0m
+[0;32mI (1399) main_task: Returned from app_main()[0m
