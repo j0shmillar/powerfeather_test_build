@@ -28,12 +28,12 @@ PIR
 
 ## Notes
 - PowerFeather only has 2 GND.
-- If building (```idf.py build```) some modifications need to be made to ```powerfeather-sdk``` and ```esp32-camera``` under ```managaed-components```:
+- We make the following modifications to ```powerfeather-sdk``` and ```esp32-camera``` under ```managed-components```:
 
   ```esp32-camera```:
   - ```esp32-camera/driver/sccb.h```: Set default I2C port to 1
 
   ```powerfeather-sdk```
-  - ```powerfeather-sdk/src/Utils/MasterI2C.h```: line 46 becomes ```_port(static_cast<i2c_port_t>(port)), _sdaPin(sdaPin), _sclPin(sclPin), _freq(freq) {};```
+  - ```powerfeather-sdk/src/Utils/MasterI2C.h```: line 46 -> ```_port(static_cast<i2c_port_t>(port)), _sdaPin(sdaPin), _sclPin(sclPin), _freq(freq) {};```
   - ```powerfeather-sdk/src/Utils/MasterI2C.cpp```: remove line 54
   - ```powerfeather-sdk/src/Mainboard/Mainboard.h```: on line 606, set ```_i2cPort``` to 0.
