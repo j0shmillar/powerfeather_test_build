@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/joshmillar/Desktop/phd/PowerFeather/supply_and_battery_info/build/esp-idf/mbedtls/mbedtls/3rdparty/everest/cmake_install.cmake")
-  include("/Users/joshmillar/Desktop/phd/PowerFeather/supply_and_battery_info/build/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/cmake_install.cmake")
+  include("/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/esp-idf/mbedtls/mbedtls/3rdparty/everest/cmake_install.cmake")
+  include("/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/cmake_install.cmake")
 
 endif()
 

@@ -15,11 +15,12 @@ void mic_init() {
         .slot_cfg = I2S_STD_MSB_SLOT_DEFAULT_CONFIG(I2S_DATA_BIT_WIDTH_32BIT, I2S_SLOT_MODE_MONO),
         .gpio_cfg = {
             .mclk = I2S_GPIO_UNUSED,
-            .bclk = I2S_INMP441_SCK,
-            .ws = I2S_INMP441_WS,
+            .bclk = I2S_SCK,
+            .ws = I2S_WS,
             .dout = I2S_GPIO_UNUSED,
-            .din = I2S_INMP441_SD,
-            .invert_flags = {
+            .din = I2S_SD,
+            .invert_flags = 
+            {
                 .mclk_inv = false,
                 .bclk_inv = false,
                 .ws_inv = false,
@@ -34,30 +35,6 @@ void mic_deinit() {
     i2s_channel_disable(s_rx_handle);
     i2s_del_channel(s_rx_handle);
 }
-
-// size_t mic_read(int16_t* samples) {
-//     static const size_t s_buffer_size = 1024U;
-//     static int32_t s_buffer[1024U];
-
-//     size_t count = I2S_SAMPLE_COUNT;
-//     size_t sample_index = 0;
-//     while (count > 0) {
-//         size_t bytes_read = 0;
-//         if (i2s_channel_read(s_rx_handle, (char*) s_buffer, s_buffer_size * I2S_SAMPLE_BYTES, &bytes_read, portMAX_DELAY) != ESP_OK) {
-//             ESP_LOGE(TAG, "Unable to read from audio channel");
-//             return 0;
-//         }
-
-//         size_t samples_read = bytes_read / I2S_SAMPLE_BYTES;
-//         for (int i = 0; i < samples_read; ++i) {
-//             samples[sample_index++] = s_buffer[i] >> 8;
-//             // printf("Sample %zu: %d\n", sample_index, samples[sample_index]);
-//             count--;
-//         }
-//         vTaskDelay(pdMS_TO_TICKS(10));
-//     }
-//     return I2S_SAMPLE_COUNT;
-// }
 
 size_t mic_read(int16_t* samples, size_t max_samples) {
     static const size_t s_buffer_size = 1024U;

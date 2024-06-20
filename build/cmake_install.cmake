@@ -1,4 +1,4 @@
-# Install script for directory: /Users/joshmillar/Desktop/phd/PowerFeather/supply_and_battery_info
+# Install script for directory: /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/joshmillar/Desktop/phd/PowerFeather/supply_and_battery_info/build/esp-idf/cmake_install.cmake")
+  include("/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/esp-idf/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/joshmillar/Desktop/phd/PowerFeather/supply_and_battery_info/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

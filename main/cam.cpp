@@ -23,9 +23,9 @@ static camera_config_t camera_config = {
     .xclk_freq_hz = 5000000,
     .ledc_timer = LEDC_TIMER_0,
     .ledc_channel = LEDC_CHANNEL_0,
-    .pixel_format = PIXFORMAT_RGB565, // YUV422,GRAYSCALE,RGB565,JPEG
+    .pixel_format = PIXFORMAT_RGB565, // YUV422,GRAYSCALE,RGB565,JPEG,...
     .frame_size = FRAMESIZE_QVGA, 
-    .jpeg_quality = 12, // 1-30, lower better
+    .jpeg_quality = 12, // 1-30, lower = better
     .fb_count = 1,
     .fb_location = CAMERA_FB_IN_PSRAM,
     .grab_mode = CAMERA_GRAB_WHEN_EMPTY,

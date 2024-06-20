@@ -1,4 +1,4 @@
-# Install script for directory: /Users/joshmillar/Desktop/phd/PowerFeather/supply_and_battery_info/managed_components/espressif__esp32-camera
+# Install script for directory: /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/managed_components/espressif__esp32-camera
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

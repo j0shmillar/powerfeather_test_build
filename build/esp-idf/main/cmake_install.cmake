@@ -1,4 +1,4 @@
-# Install script for directory: /Users/joshmillar/Desktop/phd/PowerFeather/supply_and_battery_info/main
+# Install script for directory: /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

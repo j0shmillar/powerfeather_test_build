@@ -1,13 +1,36 @@
 #include "Wifi.h"
 
 #include <freertos/task.h>
-#include <esp_log.h>
-#include <esp_wifi.h>
 #include <nvs_flash.h>
+
+#include <esp_http_client.h>
+#include <esp_wifi.h>
+#include <esp_log.h>
 
 static const char* TAG = "wifi";
 EventGroupHandle_t s_wifi_event_group;
+static esp_http_client_handle_t s_http_client;
 static int s_wifi_retry_num = 0;
+
+void http_init() {
+    esp_http_client_config_t config = {
+        .host = "IP address",
+        .port = 5003,
+        .auth_type = HTTP_AUTH_TYPE_NONE,
+        .path = "/samples",
+        .disable_auto_redirect = true,
+        .transport_type = HTTP_TRANSPORT_OVER_TCP,
+    };
+    s_http_client = esp_http_client_init(&config);
+
+    ESP_ERROR_CHECK(esp_http_client_set_method(s_http_client, HTTP_METHOD_POST));
+    ESP_ERROR_CHECK(esp_http_client_set_header(s_http_client, "Content-Type", "application/octet-stream"));
+}
+
+esp_err_t wifi_send(const int16_t* const samples, size_t count) {
+    ESP_ERROR_CHECK(esp_http_client_set_post_field(s_http_client, (const char*) samples, sizeof(uint16_t) * count));
+    return esp_http_client_perform(s_http_client);
+}
 
 void wifi_event_handler(void* arg, esp_event_base_t event_base, int32_t event_id, void* event_data) {
     if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_START) {
@@ -16,14 +39,14 @@ void wifi_event_handler(void* arg, esp_event_base_t event_base, int32_t event_id
         if (s_wifi_retry_num < WIFI_MAX_RETRY) {
             esp_wifi_connect();
             s_wifi_retry_num++;
-            ESP_LOGI(TAG, "Retry to connect to the WiFi");
+            ESP_LOGI(TAG, "connecting...");
         } else {
             xEventGroupSetBits(s_wifi_event_group, WIFI_FAIL_BIT);
         }
-        ESP_LOGI(TAG, "Connecting to the WiFi failed");
+        ESP_LOGI(TAG, "connecting failed");
     } else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
         ip_event_got_ip_t* event = (ip_event_got_ip_t*) event_data;
-        ESP_LOGI(TAG, "Got IP: " IPSTR, IP2STR(&event->ip_info.ip));
+        ESP_LOGI(TAG, "got IP: " IPSTR, IP2STR(&event->ip_info.ip));
         s_wifi_retry_num = 0;
         xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
     }
@@ -68,10 +91,12 @@ void wifi_init() {
         s_wifi_event_group, WIFI_CONNECTED_BIT | WIFI_FAIL_BIT, pdFALSE, pdFALSE, portMAX_DELAY);
 
     if (bits & WIFI_CONNECTED_BIT) {
-        ESP_LOGI(TAG, "Connected to WiFi SSID: <%s>", WIFI_SSID);
+        ESP_LOGI(TAG, "connected to SSID: <%s>", WIFI_SSID);
     } else if (bits & WIFI_FAIL_BIT) {
-        ESP_LOGI(TAG, "Unable to connect to SSID: <%s>", WIFI_SSID);
+        ESP_LOGI(TAG, "unable to connect to SSID: <%s>", WIFI_SSID);
     } else {
-        ESP_LOGE(TAG, "Unexpected event");
+        ESP_LOGE(TAG, "unexpected error");
     }
+
+    http_init();
 }

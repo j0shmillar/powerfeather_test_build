@@ -1,5 +1,0 @@
-[0;33m--- esp-idf-monitor 1.4.0 on /dev/cu.usbmodem1101 115200 ---[0m
-[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
-[0;33m0x4004e947: Cache_Freeze_DCache_Enable in ROM
-[0m
-[0m

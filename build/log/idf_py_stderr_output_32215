@@ -1,7 +1,0 @@
-[0;33m--- esp-idf-monitor 1.4.0 on /dev/cu.usbmodem1101 115200 ---[0m
-[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
-[0;33m0x403765c6: xPortEnterCriticalTimeoutSafe at /Users/joshmillar/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:581
- (inlined by) vPortEnterCriticalSafe at /Users/joshmillar/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:588
- (inlined by) esp_intr_noniram_disable at /Users/joshmillar/esp/esp-idf/components/esp_hw_support/intr_alloc.c:886
-[0m
-[0m
