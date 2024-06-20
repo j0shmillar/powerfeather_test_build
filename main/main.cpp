@@ -45,30 +45,46 @@ void loop() {
 
 extern "C" void app_main()
 {
-    gpio_reset_pin(PowerFeather::Mainboard::Pin::BTN);
-    gpio_set_direction(PowerFeather::Mainboard::Pin::BTN, GPIO_MODE_INPUT);
+    // gpio_reset_pin(PowerFeather::Mainboard::Pin::BTN);
+    // gpio_set_direction(PowerFeather::Mainboard::Pin::BTN, GPIO_MODE_INPUT);
 
-    gpio_reset_pin(PowerFeather::Mainboard::Pin::LED);
-    gpio_set_direction(PowerFeather::Mainboard::Pin::LED, GPIO_MODE_INPUT_OUTPUT);
+    // gpio_reset_pin(PowerFeather::Mainboard::Pin::LED);
+    // gpio_set_direction(PowerFeather::Mainboard::Pin::LED, GPIO_MODE_INPUT_OUTPUT);
 
     // D13 = PIR
     gpio_reset_pin(PowerFeather::Mainboard::Pin::D13);
+    rtc_gpio_init(PowerFeather::Mainboard::Pin::D13);
     gpio_set_direction(PowerFeather::Mainboard::Pin::D13, GPIO_MODE_INPUT);
-    gpio_set_level(PowerFeather::Mainboard::Pin::D13, 0);
 
     if (PowerFeather::Board.init(BATTERY_CAPACITY) == PowerFeather::Result::Ok)
     {
         PowerFeather::Board.enableBatteryCharging(false);
-        PowerFeather::Board.setBatteryChargingMaxCurrent(50);
         PowerFeather::Board.enableBatteryFuelGauge(false);
         PowerFeather::Board.enableBatteryTempSense(false);
         printf("board init success\n");
         inited = true;
     }
 
+    // mic - power down
     PowerFeather::Board.setEN(false); 
+    // gpio_hold_dis(PowerFeather::Mainboard::Pin::EN);
+
+    // cam - power down
     PowerFeather::Board.enable3V3(false);
+    gpio_set_level(PowerFeather::Mainboard::Pin::A0, 1);
+    rtc_gpio_hold_dis(PowerFeather::Mainboard::Pin::A0);
+
+    // other v sources
     PowerFeather::Board.enableVSQT(false);
+    gpio_reset_pin(PowerFeather::Mainboard::Pin::SDA);
+    gpio_set_direction(PowerFeather::Mainboard::Pin::SDA, GPIO_MODE_INPUT);
+    gpio_set_level(PowerFeather::Mainboard::Pin::SDA, 0);
+    gpio_hold_dis(PowerFeather::Mainboard::Pin::SDA);
+    gpio_reset_pin(PowerFeather::Mainboard::Pin::SCL);
+    gpio_set_direction(PowerFeather::Mainboard::Pin::SCL, GPIO_MODE_INPUT);
+    gpio_set_level(PowerFeather::Mainboard::Pin::SCL, 0);
+    gpio_hold_dis(PowerFeather::Mainboard::Pin::SCL);
+    rtc_gpio_isolate(GPIO_NUM_12);
 
     /*--------------------------------------------------------------------------------*/
     esp_sleep_enable_timer_wakeup(30 * 1000000);

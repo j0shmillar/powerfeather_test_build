@@ -4,7 +4,7 @@
 #include <esp_err.h>
 #include <esp_camera.h>
 
-#define CAM_PIN_PWDN  -1
+#define CAM_PIN_PWDN  41
 #define CAM_PIN_RESET -1
 #define CAM_PIN_XCLK   2   //XCLK
 #define CAM_PIN_SIOD  35   //SDA

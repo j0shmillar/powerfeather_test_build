@@ -8,7 +8,7 @@
 #define I2S_WS  GPIO_NUM_40 
 #define I2S_SD  GPIO_NUM_9
 
-#define I2S_SAMPLE_RATE (8000U)
+#define I2S_SAMPLE_RATE  (8000U)
 #define I2S_SAMPLE_BYTES (4U)
 #define I2S_SAMPLE_COUNT (16384U)
 

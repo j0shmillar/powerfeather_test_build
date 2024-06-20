@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "powerfeather_test_build",
-    "project_version":    "acf9b4e-dirty",
+    "project_version":    "c081f92-dirty",
     "project_path":       "/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build",
     "idf_path":           "/Users/joshmillar/esp/esp-idf",
     "build_dir":          "/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build",
@@ -1458,15 +1458,15 @@
             "target": "___idf_ulp",
             "prefix": "idf",
             "dir": "/Users/joshmillar/esp/esp-idf/components/ulp",
-            "type": "CONFIG_ONLY",
+            "type": "LIBRARY",
             "lib": "__idf_ulp",
             "reqs": [ "driver", "esp_adc" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "",
-            "sources": [],
-            "include_dirs": []
+            "file": "/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/esp-idf/ulp/libulp.a",
+            "sources": [ "/Users/joshmillar/esp/esp-idf/components/ulp/ulp_common/ulp_common.c", "/Users/joshmillar/esp/esp-idf/components/ulp/ulp_common/ulp_adc.c", "/Users/joshmillar/esp/esp-idf/components/ulp/ulp_riscv/ulp_riscv.c", "/Users/joshmillar/esp/esp-idf/components/ulp/ulp_riscv/ulp_riscv_lock.c", "/Users/joshmillar/esp/esp-idf/components/ulp/ulp_riscv/ulp_riscv_i2c.c" ],
+            "include_dirs": [ "ulp_common/include", "ulp_riscv/include", "ulp_riscv/shared/include" ]
         },
         "unity": {
             "alias": "idf::unity",
@@ -2713,7 +2713,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": []
+            "include_dirs": [ "ulp_common/include", "ulp_riscv/include", "ulp_riscv/shared/include" ]
         },
         "unity": {
             "alias": "idf::unity",
@@ -2811,18 +2811,6 @@
             "managed_priv_reqs": [ "espressif__esp32-camera", "powerfeather__powerfeather-sdk" ],
             "include_dirs": []
         },
-        "espressif__esp32-camera": {
-            "alias": "idf::espressif__esp32-camera",
-            "target": "___idf_espressif__esp32-camera",
-            "prefix": "idf",
-            "dir": "/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/managed_components/espressif__esp32-camera",
-            "lib": "__idf_espressif__esp32-camera",
-            "reqs": [ "driver" ],
-            "priv_reqs": [ "freertos", "nvs_flash", "esp_timer" ],
-            "managed_reqs": [],
-            "managed_priv_reqs": [],
-            "include_dirs": [ "driver/include", "conversions/include" ]
-        },
         "powerfeather__powerfeather-sdk": {
             "alias": "idf::powerfeather__powerfeather-sdk",
             "target": "___idf_powerfeather__powerfeather-sdk",
@@ -2834,6 +2822,18 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "include_dirs": [ "/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/managed_components/powerfeather__powerfeather-sdk/src" ]
+        },
+        "espressif__esp32-camera": {
+            "alias": "idf::espressif__esp32-camera",
+            "target": "___idf_espressif__esp32-camera",
+            "prefix": "idf",
+            "dir": "/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/managed_components/espressif__esp32-camera",
+            "lib": "__idf_espressif__esp32-camera",
+            "reqs": [ "driver" ],
+            "priv_reqs": [ "freertos", "nvs_flash", "esp_timer" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "include_dirs": [ "driver/include", "conversions/include" ]
         }
     },
     "debug_prefix_map_gdbinit": ""
