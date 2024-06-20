@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "powerfeather_test_build",
-    "project_version":    "c85c7c7-dirty",
+    "project_version":    "acf9b4e-dirty",
     "project_path":       "/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build",
     "idf_path":           "/Users/joshmillar/esp/esp-idf",
     "build_dir":          "/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build",
