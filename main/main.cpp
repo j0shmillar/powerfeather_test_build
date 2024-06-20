@@ -1,5 +1,4 @@
 #include <freertos/FreeRTOS.h>
-#include <freertos/task.h>
 #include <driver/gpio.h>
 
 #include <PowerFeather.h>
@@ -11,6 +10,8 @@
 #include "cam.h"
 #include "mic.h"
 #include "wifi.h"
+
+#include "driver/adc.h"
 
 static const char *TAG = "powerfeather";
 #define BATTERY_CAPACITY 0
@@ -45,11 +46,11 @@ void loop() {
 
 extern "C" void app_main()
 {
-    // gpio_reset_pin(PowerFeather::Mainboard::Pin::BTN);
-    // gpio_set_direction(PowerFeather::Mainboard::Pin::BTN, GPIO_MODE_INPUT);
+    gpio_reset_pin(PowerFeather::Mainboard::Pin::BTN);
+    gpio_set_direction(PowerFeather::Mainboard::Pin::BTN, GPIO_MODE_INPUT);
 
-    // gpio_reset_pin(PowerFeather::Mainboard::Pin::LED);
-    // gpio_set_direction(PowerFeather::Mainboard::Pin::LED, GPIO_MODE_INPUT_OUTPUT);
+    gpio_reset_pin(PowerFeather::Mainboard::Pin::LED);
+    gpio_set_direction(PowerFeather::Mainboard::Pin::LED, GPIO_MODE_INPUT_OUTPUT);
 
     // D13 = PIR
     gpio_reset_pin(PowerFeather::Mainboard::Pin::D13);
@@ -67,12 +68,11 @@ extern "C" void app_main()
 
     // mic - power down
     PowerFeather::Board.setEN(false); 
-    // gpio_hold_dis(PowerFeather::Mainboard::Pin::EN);
 
     // cam - power down
     PowerFeather::Board.enable3V3(false);
     gpio_set_level(PowerFeather::Mainboard::Pin::A0, 1);
-    rtc_gpio_hold_dis(PowerFeather::Mainboard::Pin::A0);
+    rtc_gpio_hold_en(PowerFeather::Mainboard::Pin::A0);
 
     // other v sources
     PowerFeather::Board.enableVSQT(false);
@@ -84,7 +84,6 @@ extern "C" void app_main()
     gpio_set_direction(PowerFeather::Mainboard::Pin::SCL, GPIO_MODE_INPUT);
     gpio_set_level(PowerFeather::Mainboard::Pin::SCL, 0);
     gpio_hold_dis(PowerFeather::Mainboard::Pin::SCL);
-    rtc_gpio_isolate(GPIO_NUM_12);
 
     /*--------------------------------------------------------------------------------*/
     esp_sleep_enable_timer_wakeup(30 * 1000000);
