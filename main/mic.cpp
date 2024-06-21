@@ -53,6 +53,7 @@ size_t mic_read(int16_t* samples, size_t max_samples) {
         size_t samples_read = bytes_read / I2S_SAMPLE_BYTES;
         for (size_t i = 0; i < samples_read && count > 0; ++i) {
             samples[sample_index++] = s_buffer[i] >> 8;
+            // printf("Sample %zu: %d\n", sample_index, samples[sample_index]);
             count--;
         }
         vTaskDelay(pdMS_TO_TICKS(10));

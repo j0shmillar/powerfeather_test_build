@@ -11,8 +11,6 @@
 #include "mic.h"
 #include "wifi.h"
 
-#include "driver/adc.h"
-
 static const char *TAG = "powerfeather";
 #define BATTERY_CAPACITY 0
 bool inited = false;
@@ -24,48 +22,34 @@ const size_t SAMPLE_RATE = 16000;
 const size_t RECORD_DURATION_SECONDS = 10;
 const size_t TOTAL_SAMPLES = SAMPLE_RATE * RECORD_DURATION_SECONDS;
 
+const gpio_num_t PIR = GPIO_NUM_11;
+
 void loop() {
+    vTaskDelay(pdMS_TO_TICKS(3000));
     while (true) 
     {
         /*--------------------------------------------------------------------------------*/
-        ESP_LOGI(TAG, "PIR");
-        int sensor_output = gpio_get_level(PowerFeather::Mainboard::Pin::D13);
-        if (sensor_output == 0) {
+        int output = gpio_get_level(PIR);
+        ESP_LOGI(TAG, "%d", output);
+        if (output == 0) {
             if (warm_up == 1) {
                 ESP_LOGI(TAG, "warming up");
                 warm_up = 0;
+                vTaskDelay(pdMS_TO_TICKS(30));
             }
+            vTaskDelay(pdMS_TO_TICKS(10));
         } else {
             ESP_LOGI(TAG, "motion detected");
             warm_up = 1;
+            vTaskDelay(pdMS_TO_TICKS(10));
         }
         vTaskDelay(pdMS_TO_TICKS(1000));
         /*--------------------------------------------------------------------------------*/
     }
 }
 
-extern "C" void app_main()
+void sleep_config()
 {
-    gpio_reset_pin(PowerFeather::Mainboard::Pin::BTN);
-    gpio_set_direction(PowerFeather::Mainboard::Pin::BTN, GPIO_MODE_INPUT);
-
-    gpio_reset_pin(PowerFeather::Mainboard::Pin::LED);
-    gpio_set_direction(PowerFeather::Mainboard::Pin::LED, GPIO_MODE_INPUT_OUTPUT);
-
-    // D13 = PIR
-    gpio_reset_pin(PowerFeather::Mainboard::Pin::D13);
-    rtc_gpio_init(PowerFeather::Mainboard::Pin::D13);
-    gpio_set_direction(PowerFeather::Mainboard::Pin::D13, GPIO_MODE_INPUT);
-
-    if (PowerFeather::Board.init(BATTERY_CAPACITY) == PowerFeather::Result::Ok)
-    {
-        PowerFeather::Board.enableBatteryCharging(false);
-        PowerFeather::Board.enableBatteryFuelGauge(false);
-        PowerFeather::Board.enableBatteryTempSense(false);
-        printf("board init success\n");
-        inited = true;
-    }
-
     // mic - power down
     PowerFeather::Board.setEN(false); 
 
@@ -76,22 +60,58 @@ extern "C" void app_main()
 
     // other v sources
     PowerFeather::Board.enableVSQT(false);
-    gpio_reset_pin(PowerFeather::Mainboard::Pin::SDA);
-    gpio_set_direction(PowerFeather::Mainboard::Pin::SDA, GPIO_MODE_INPUT);
-    gpio_set_level(PowerFeather::Mainboard::Pin::SDA, 0);
-    gpio_hold_dis(PowerFeather::Mainboard::Pin::SDA);
-    gpio_reset_pin(PowerFeather::Mainboard::Pin::SCL);
-    gpio_set_direction(PowerFeather::Mainboard::Pin::SCL, GPIO_MODE_INPUT);
-    gpio_set_level(PowerFeather::Mainboard::Pin::SCL, 0);
-    gpio_hold_dis(PowerFeather::Mainboard::Pin::SCL);
+    gpio_reset_pin(GPIO_NUM_15);
+    gpio_reset_pin(GPIO_NUM_16);
+    gpio_reset_pin(GPIO_NUM_37);
+    gpio_reset_pin(GPIO_NUM_6);
+    gpio_reset_pin(GPIO_NUM_17);
+    gpio_reset_pin(GPIO_NUM_18);
+    gpio_reset_pin(GPIO_NUM_45);
+    gpio_reset_pin(GPIO_NUM_12);
+    gpio_reset_pin(GPIO_NUM_44);
+    gpio_reset_pin(GPIO_NUM_42);
+    gpio_reset_pin(GPIO_NUM_41);
+    gpio_reset_pin(GPIO_NUM_40);
+    gpio_reset_pin(GPIO_NUM_39);
+    gpio_reset_pin(GPIO_NUM_43);
+    gpio_reset_pin(GPIO_NUM_36);
+    gpio_reset_pin(GPIO_NUM_35);
+    gpio_reset_pin(GPIO_NUM_21); 
+    gpio_reset_pin(GPIO_NUM_5); 
+    gpio_reset_pin(GPIO_NUM_46); 
+    gpio_reset_pin(GPIO_NUM_0);
+}
+
+extern "C" void app_main()
+{
+    gpio_reset_pin(PowerFeather::Mainboard::Pin::BTN);
+    gpio_set_direction(PowerFeather::Mainboard::Pin::BTN, GPIO_MODE_INPUT);
+
+    gpio_reset_pin(PowerFeather::Mainboard::Pin::LED);
+    gpio_set_direction(PowerFeather::Mainboard::Pin::LED, GPIO_MODE_INPUT_OUTPUT);
+
+    // PIR
+    gpio_reset_pin(PIR);
+    gpio_set_direction(PIR, GPIO_MODE_INPUT); 
+    esp_sleep_enable_ext0_wakeup(PIR, 1);
+    
+    if (PowerFeather::Board.init(BATTERY_CAPACITY) == PowerFeather::Result::Ok)
+    {
+        PowerFeather::Board.enableBatteryCharging(false);
+        PowerFeather::Board.enableBatteryFuelGauge(false);
+        PowerFeather::Board.enableBatteryTempSense(false);
+        printf("board init success\n");
+        inited = true;
+    }
 
     /*--------------------------------------------------------------------------------*/
-    esp_sleep_enable_timer_wakeup(30 * 1000000);
-    esp_deep_sleep_start();
+    // esp_sleep_enable_timer_wakeup(30 * 1000000);
+    // sleep_config();
+    // esp_deep_sleep_start();
     /*--------------------------------------------------------------------------------*/
     /* deep sleep wake-up and image capture (every 30s) */
-    // esp_sleep_enable_ext0_wakeup(Mainboard::Pin::D13, 1);
     // rtc_gpio_isolate(PowerFeather::Mainboard::Pin::D13);
+    // PowerFeather::Board.enable3V3(true); 
     // if (esp_sleep_get_wakeup_cause() == ESP_SLEEP_WAKEUP_EXT0) 
     // {
     //     PowerFeather::Board.enable3V3(true); 
@@ -101,8 +121,9 @@ extern "C" void app_main()
     //     }
     //     capture();
     // }
-    // PowerFeather::Board.enable3V3(false); 
-    // esp_deep_sleep(30 * 1000000);
+    // sleep_config();
+    // esp_sleep_enable_timer_wakeup(30 * 1000000);
+    // esp_deep_sleep_start();
     /*--------------------------------------------------------------------------------*/
     /* deep sleep wake-up and record for 30s (every 30s) */
     /* Note: wifi transmission + recording causes noise on power line */

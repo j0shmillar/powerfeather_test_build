@@ -37,11 +37,14 @@ static const char* TAG = "sccb";
 #define ACK_CHECK_DIS           0x0                   /*!< I2C master will not check ack from slave */
 #define ACK_VAL                 0x0                   /*!< I2C ack value */
 #define NACK_VAL                0x1                   /*!< I2C nack value */
+
+/*--------------------------------------------------------------------------------------------------*/
 #if CONFIG_SCCB_HARDWARE_I2C_PORT1
 const int SCCB_I2C_PORT_DEFAULT = 1;
 #else
-const int SCCB_I2C_PORT_DEFAULT = 0;
+const int SCCB_I2C_PORT_DEFAULT = 1;
 #endif
+/*--------------------------------------------------------------------------------------------------*/
 
 static int sccb_i2c_port;
 static bool sccb_owns_i2c_port;

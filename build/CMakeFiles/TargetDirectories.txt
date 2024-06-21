@@ -796,7 +796,6 @@
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/esp-idf/touch_element/CMakeFiles/install.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/esp-idf/touch_element/CMakeFiles/install/local.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/esp-idf/touch_element/CMakeFiles/install/strip.dir
-/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/esp-idf/ulp/CMakeFiles/__idf_ulp.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/esp-idf/ulp/CMakeFiles/edit_cache.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/esp-idf/ulp/CMakeFiles/rebuild_cache.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/esp-idf/ulp/CMakeFiles/list_install_components.dir

@@ -84,8 +84,7 @@ MEMORY
    * RTC slow memory (data accessible). Persists over deep sleep.
    * Start of RTC slow memory is reserved for ULP co-processor code + data, if enabled.
    */
-  rtc_slow_seg(RW) : org = 0x50000000 + 4096,
-                                     len = 0x2000 - 4096
+  rtc_slow_seg(RW) : org = 0x50000000 , len = 0x2000
   /**
    * `extern_ram_seg` and `drom0_0_seg` share the same bus and the address region.
    * A dummy section is used to avoid overlap. See `.ext_ram.dummy` in `sections.ld.in`
