@@ -178,7 +178,7 @@ build dfu-flash: phony CMakeFiles/dfu-flash
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -190,7 +190,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -202,7 +202,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Custom command for CMakeFiles/menuconfig
 
 build CMakeFiles/menuconfig | ${cmake_ninja_workdir}CMakeFiles/menuconfig: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python /Users/joshmillar/esp/esp-idf/tools/kconfig_new/prepare_kconfig_files.py --list-separator=semicolon --env-file /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/config.env && /Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python -m kconfgen --list-separator=semicolon --kconfig /Users/joshmillar/esp/esp-idf/Kconfig --sdkconfig-rename /Users/joshmillar/esp/esp-idf/sdkconfig.rename --config /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/sdkconfig --env-file /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/config.env --env IDF_TARGET=esp32s3 --env IDF_TOOLCHAIN=gcc --env IDF_ENV_FPGA= --env IDF_INIT_VERSION=5.4.0 --dont-write-deprecated --output config /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/sdkconfig && /Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python /Users/joshmillar/esp/esp-idf/tools/check_term.py && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -E env COMPONENT_KCONFIGS_SOURCE_FILE=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/kconfigs.in COMPONENT_KCONFIGS_PROJBUILD_SOURCE_FILE=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/kconfigs_projbuild.in KCONFIG_CONFIG=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/sdkconfig IDF_TARGET=esp32s3 IDF_TOOLCHAIN=gcc IDF_ENV_FPGA= IDF_INIT_VERSION=5.4.0 /Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python -m menuconfig /Users/joshmillar/esp/esp-idf/Kconfig && /Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python -m kconfgen --list-separator=semicolon --kconfig /Users/joshmillar/esp/esp-idf/Kconfig --sdkconfig-rename /Users/joshmillar/esp/esp-idf/sdkconfig.rename --config /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/sdkconfig --env-file /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/config.env --env IDF_TARGET=esp32s3 --env IDF_TOOLCHAIN=gcc --env IDF_ENV_FPGA= --env IDF_INIT_VERSION=5.4.0 --output config /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/sdkconfig
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python /Users/joshmillar/esp/esp-idf/tools/kconfig_new/prepare_kconfig_files.py --list-separator=semicolon --env-file /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/config.env && /Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python -m kconfgen --list-separator=semicolon --kconfig /Users/joshmillar/esp/esp-idf/Kconfig --sdkconfig-rename /Users/joshmillar/esp/esp-idf/sdkconfig.rename --config /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/sdkconfig --env-file /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/config.env --env IDF_TARGET=esp32s3 --env IDF_TOOLCHAIN=gcc --env IDF_ENV_FPGA= --env IDF_INIT_VERSION=5.4.0 --dont-write-deprecated --output config /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/sdkconfig && /Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python /Users/joshmillar/esp/esp-idf/tools/check_term.py && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -E env COMPONENT_KCONFIGS_SOURCE_FILE=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/kconfigs.in COMPONENT_KCONFIGS_PROJBUILD_SOURCE_FILE=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/kconfigs_projbuild.in KCONFIG_CONFIG=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/sdkconfig IDF_TARGET=esp32s3 IDF_TOOLCHAIN=gcc IDF_ENV_FPGA= IDF_INIT_VERSION=5.4.0 /Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python -m menuconfig /Users/joshmillar/esp/esp-idf/Kconfig && /Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python -m kconfgen --list-separator=semicolon --kconfig /Users/joshmillar/esp/esp-idf/Kconfig --sdkconfig-rename /Users/joshmillar/esp/esp-idf/sdkconfig.rename --config /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/sdkconfig --env-file /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/config.env --env IDF_TARGET=esp32s3 --env IDF_TOOLCHAIN=gcc --env IDF_ENV_FPGA= --env IDF_INIT_VERSION=5.4.0 --output config /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/sdkconfig
   pool = console
 
 
@@ -232,7 +232,7 @@ build CMakeFiles/gen_project_binary | ${cmake_ninja_workdir}CMakeFiles/gen_proje
 # Custom command for .bin_timestamp
 
 build .bin_timestamp | ${cmake_ninja_workdir}.bin_timestamp: CUSTOM_COMMAND bootloader.elf || _project_elf_src bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/esp_bootloader_format/libesp_bootloader_format.a esp-idf/esp_common/libesp_common.a esp-idf/esp_hw_support/libesp_hw_support.a esp-idf/esp_rom/libesp_rom.a esp-idf/esp_system/libesp_system.a esp-idf/hal/libhal.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a esp-idf/xtensa/libxtensa.a
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python /Users/joshmillar/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32s3 elf2image --flash_mode dio --flash_freq 80m --flash_size 2MB --min-rev-full 0 --max-rev-full 99 -o /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.bin /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.elf && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -E echo "Generated /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.bin" && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -E md5sum /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.bin > /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/.bin_timestamp
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python /Users/joshmillar/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32s3 elf2image --flash_mode dio --flash_freq 80m --flash_size 2MB --min-rev-full 0 --max-rev-full 99 -o /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.bin /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.elf && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -E echo "Generated /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.bin" && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -E md5sum /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.bin > /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/.bin_timestamp
   DESC = Generating binary image from built executable
   restat = 1
 
@@ -247,7 +247,7 @@ build CMakeFiles/app | ${cmake_ninja_workdir}CMakeFiles/app: phony || _project_e
 # Custom command for CMakeFiles/erase_flash
 
 build CMakeFiles/erase_flash | ${cmake_ninja_workdir}CMakeFiles/erase_flash: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/esp/esp-idf/components/esptool_py && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -D IDF_PATH=/Users/joshmillar/esp/esp-idf -D "SERIAL_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;;/Users/joshmillar/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D SERIAL_TOOL_ARGS=erase_flash -P run_serial_tool.cmake
+  COMMAND = cd /Users/joshmillar/esp/esp-idf/components/esptool_py && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -D IDF_PATH=/Users/joshmillar/esp/esp-idf -D "SERIAL_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;;/Users/joshmillar/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D SERIAL_TOOL_ARGS=erase_flash -P run_serial_tool.cmake
   pool = console
 
 
@@ -255,7 +255,7 @@ build CMakeFiles/erase_flash | ${cmake_ninja_workdir}CMakeFiles/erase_flash: CUS
 # Custom command for CMakeFiles/uf2
 
 build CMakeFiles/uf2 | ${cmake_ninja_workdir}CMakeFiles/uf2: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/esp/esp-idf/components/esptool_py && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -D IDF_PATH=/Users/joshmillar/esp/esp-idf -D "SERIAL_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;/Users/joshmillar/esp/esp-idf/tools/mkuf2.py;write;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--json;/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/flasher_args.json;-o;/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/uf2.bin" -P run_serial_tool.cmake
+  COMMAND = cd /Users/joshmillar/esp/esp-idf/components/esptool_py && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -D IDF_PATH=/Users/joshmillar/esp/esp-idf -D "SERIAL_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;/Users/joshmillar/esp/esp-idf/tools/mkuf2.py;write;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--json;/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/flasher_args.json;-o;/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/uf2.bin" -P run_serial_tool.cmake
   pool = console
 
 
@@ -263,7 +263,7 @@ build CMakeFiles/uf2 | ${cmake_ninja_workdir}CMakeFiles/uf2: CUSTOM_COMMAND
 # Custom command for CMakeFiles/uf2-app
 
 build CMakeFiles/uf2-app | ${cmake_ninja_workdir}CMakeFiles/uf2-app: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/esp/esp-idf/components/esptool_py && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -D IDF_PATH=/Users/joshmillar/esp/esp-idf -D "SERIAL_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;/Users/joshmillar/esp/esp-idf/tools/mkuf2.py;write;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--json;/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/flasher_args.json;-o;/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/uf2-app.bin;--bin;app" -P run_serial_tool.cmake
+  COMMAND = cd /Users/joshmillar/esp/esp-idf/components/esptool_py && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -D IDF_PATH=/Users/joshmillar/esp/esp-idf -D "SERIAL_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;/Users/joshmillar/esp/esp-idf/tools/mkuf2.py;write;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--json;/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/flasher_args.json;-o;/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/uf2-app.bin;--bin;app" -P run_serial_tool.cmake
   pool = console
 
 
@@ -271,7 +271,7 @@ build CMakeFiles/uf2-app | ${cmake_ninja_workdir}CMakeFiles/uf2-app: CUSTOM_COMM
 # Custom command for CMakeFiles/merge-bin
 
 build CMakeFiles/merge-bin | ${cmake_ninja_workdir}CMakeFiles/merge-bin: CUSTOM_COMMAND bootloader || _project_elf_src bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/esp_bootloader_format/libesp_bootloader_format.a esp-idf/esp_common/libesp_common.a esp-idf/esp_hw_support/libesp_hw_support.a esp-idf/esp_rom/libesp_rom.a esp-idf/esp_system/libesp_system.a esp-idf/hal/libhal.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a esp-idf/xtensa/libxtensa.a gen_project_binary
-  COMMAND = cd /Users/joshmillar/esp/esp-idf/components/esptool_py && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -D IDF_PATH=/Users/joshmillar/esp/esp-idf -D "SERIAL_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;;/Users/joshmillar/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=merge_bin;-o;/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/merged-binary.bin;@/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/flash_args" -D WORKING_DIRECTORY=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader -P run_serial_tool.cmake
+  COMMAND = cd /Users/joshmillar/esp/esp-idf/components/esptool_py && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -D IDF_PATH=/Users/joshmillar/esp/esp-idf -D "SERIAL_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;;/Users/joshmillar/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=merge_bin;-o;/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/merged-binary.bin;@/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/flash_args" -D WORKING_DIRECTORY=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader -P run_serial_tool.cmake
   pool = console
 
 
@@ -279,7 +279,7 @@ build CMakeFiles/merge-bin | ${cmake_ninja_workdir}CMakeFiles/merge-bin: CUSTOM_
 # Custom command for CMakeFiles/monitor
 
 build CMakeFiles/monitor | ${cmake_ninja_workdir}CMakeFiles/monitor: CUSTOM_COMMAND || _project_elf_src bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/esp_bootloader_format/libesp_bootloader_format.a esp-idf/esp_common/libesp_common.a esp-idf/esp_hw_support/libesp_hw_support.a esp-idf/esp_rom/libesp_rom.a esp-idf/esp_system/libesp_system.a esp-idf/hal/libhal.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a esp-idf/xtensa/libxtensa.a
-  COMMAND = cd /Users/joshmillar/esp/esp-idf/components/esptool_py && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -D IDF_PATH=/Users/joshmillar/esp/esp-idf -D "SERIAL_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;-m;esp_idf_monitor" -D "SERIAL_TOOL_ARGS=--toolchain-prefix;xtensa-esp32s3-elf-;;--target;esp32s3;;--revision;0;;/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.elf" -D WORKING_DIRECTORY=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader -P run_serial_tool.cmake
+  COMMAND = cd /Users/joshmillar/esp/esp-idf/components/esptool_py && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -D IDF_PATH=/Users/joshmillar/esp/esp-idf -D "SERIAL_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;-m;esp_idf_monitor" -D "SERIAL_TOOL_ARGS=--toolchain-prefix;xtensa-esp32s3-elf-;;--target;esp32s3;;--revision;0;;/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.elf" -D WORKING_DIRECTORY=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader -P run_serial_tool.cmake
   pool = console
 
 
@@ -293,7 +293,7 @@ build CMakeFiles/_project_elf_src | ${cmake_ninja_workdir}CMakeFiles/_project_el
 # Custom command for project_elf_src_esp32s3.c
 
 build project_elf_src_esp32s3.c | ${cmake_ninja_workdir}project_elf_src_esp32s3.c: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -E touch /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/project_elf_src_esp32s3.c
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -E touch /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/project_elf_src_esp32s3.c
   DESC = Generating project_elf_src_esp32s3.c
   restat = 1
 
@@ -302,7 +302,7 @@ build project_elf_src_esp32s3.c | ${cmake_ninja_workdir}project_elf_src_esp32s3.
 # Custom command for CMakeFiles/size
 
 build CMakeFiles/size | ${cmake_ninja_workdir}CMakeFiles/size: CUSTOM_COMMAND bootloader.map
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -D "IDF_SIZE_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;-m;esp_idf_size" -D MAP_FILE=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.map -D OUTPUT_JSON= -P /Users/joshmillar/esp/esp-idf/tools/cmake/run_size_tool.cmake
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -D "IDF_SIZE_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;-m;esp_idf_size" -D MAP_FILE=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.map -D OUTPUT_JSON= -P /Users/joshmillar/esp/esp-idf/tools/cmake/run_size_tool.cmake
   pool = console
 
 
@@ -310,7 +310,7 @@ build CMakeFiles/size | ${cmake_ninja_workdir}CMakeFiles/size: CUSTOM_COMMAND bo
 # Custom command for CMakeFiles/size-files
 
 build CMakeFiles/size-files | ${cmake_ninja_workdir}CMakeFiles/size-files: CUSTOM_COMMAND bootloader.map
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -D "IDF_SIZE_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;-m;esp_idf_size" -D IDF_SIZE_MODE=--files -D MAP_FILE=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.map -D OUTPUT_JSON= -P /Users/joshmillar/esp/esp-idf/tools/cmake/run_size_tool.cmake
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -D "IDF_SIZE_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;-m;esp_idf_size" -D IDF_SIZE_MODE=--files -D MAP_FILE=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.map -D OUTPUT_JSON= -P /Users/joshmillar/esp/esp-idf/tools/cmake/run_size_tool.cmake
   pool = console
 
 
@@ -318,7 +318,7 @@ build CMakeFiles/size-files | ${cmake_ninja_workdir}CMakeFiles/size-files: CUSTO
 # Custom command for CMakeFiles/size-components
 
 build CMakeFiles/size-components | ${cmake_ninja_workdir}CMakeFiles/size-components: CUSTOM_COMMAND bootloader.map
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -D "IDF_SIZE_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;-m;esp_idf_size" -D IDF_SIZE_MODE=--archives -D MAP_FILE=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.map -D OUTPUT_JSON= -P /Users/joshmillar/esp/esp-idf/tools/cmake/run_size_tool.cmake
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -D "IDF_SIZE_TOOL=/Users/joshmillar/.espressif/python_env/idf5.4_py3.12_env/bin/python;-m;esp_idf_size" -D IDF_SIZE_MODE=--archives -D MAP_FILE=/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/bootloader.map -D OUTPUT_JSON= -P /Users/joshmillar/esp/esp-idf/tools/cmake/run_size_tool.cmake
   pool = console
 
 
@@ -334,7 +334,7 @@ build CMakeFiles/dfu | ${cmake_ninja_workdir}CMakeFiles/dfu: CUSTOM_COMMAND boot
 # Custom command for CMakeFiles/dfu-list
 
 build CMakeFiles/dfu-list | ${cmake_ninja_workdir}CMakeFiles/dfu-list: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -D ESP_DFU_LIST="1" -P /Users/joshmillar/esp/esp-idf/tools/cmake/run_dfu_util.cmake
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -D ESP_DFU_LIST="1" -P /Users/joshmillar/esp/esp-idf/tools/cmake/run_dfu_util.cmake
   pool = console
 
 
@@ -342,7 +342,7 @@ build CMakeFiles/dfu-list | ${cmake_ninja_workdir}CMakeFiles/dfu-list: CUSTOM_CO
 # Custom command for CMakeFiles/dfu-flash
 
 build CMakeFiles/dfu-flash | ${cmake_ninja_workdir}CMakeFiles/dfu-flash: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -D ESP_DFU_BIN="/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/dfu.bin" -D ESP_DFU_PID="9" -P /Users/joshmillar/esp/esp-idf/tools/cmake/run_dfu_util.cmake
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -D ESP_DFU_BIN="/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/dfu.bin" -D ESP_DFU_PID="9" -P /Users/joshmillar/esp/esp-idf/tools/cmake/run_dfu_util.cmake
   pool = console
 
 # =============================================================================
@@ -355,7 +355,7 @@ build CMakeFiles/dfu-flash | ${cmake_ninja_workdir}CMakeFiles/dfu-flash: CUSTOM_
 # Utility command for edit_cache
 
 build esp-idf/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -367,7 +367,7 @@ build esp-idf/edit_cache: phony esp-idf/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build esp-idf/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -425,7 +425,7 @@ build esp-idf/xtensa/libxtensa.a: C_STATIC_LIBRARY_LINKER____idf_xtensa_ esp-idf
 # Utility command for edit_cache
 
 build esp-idf/xtensa/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/xtensa && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/xtensa && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -437,7 +437,7 @@ build esp-idf/xtensa/edit_cache: phony esp-idf/xtensa/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build esp-idf/xtensa/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/xtensa && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/xtensa && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -454,7 +454,7 @@ build esp-idf/xtensa/rebuild_cache: phony esp-idf/xtensa/CMakeFiles/rebuild_cach
 # Utility command for edit_cache
 
 build esp-idf/newlib/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/newlib && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/newlib && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -466,7 +466,7 @@ build esp-idf/newlib/edit_cache: phony esp-idf/newlib/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build esp-idf/newlib/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/newlib && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/newlib && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -716,7 +716,7 @@ build esp-idf/soc/libsoc.a: C_STATIC_LIBRARY_LINKER____idf_soc_ esp-idf/soc/CMak
 # Utility command for edit_cache
 
 build esp-idf/soc/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/soc && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/soc && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -728,7 +728,7 @@ build esp-idf/soc/edit_cache: phony esp-idf/soc/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build esp-idf/soc/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/soc && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/soc && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -778,7 +778,7 @@ build esp-idf/micro-ecc/libmicro-ecc.a: C_STATIC_LIBRARY_LINKER____idf_micro-ecc
 # Utility command for edit_cache
 
 build esp-idf/micro-ecc/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/micro-ecc && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/micro-ecc && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -790,7 +790,7 @@ build esp-idf/micro-ecc/edit_cache: phony esp-idf/micro-ecc/CMakeFiles/edit_cach
 # Utility command for rebuild_cache
 
 build esp-idf/micro-ecc/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/micro-ecc && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/micro-ecc && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -880,7 +880,7 @@ build esp-idf/hal/libhal.a: C_STATIC_LIBRARY_LINKER____idf_hal_ esp-idf/hal/CMak
 # Utility command for edit_cache
 
 build esp-idf/hal/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/hal && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/hal && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -892,7 +892,7 @@ build esp-idf/hal/edit_cache: phony esp-idf/hal/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build esp-idf/hal/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/hal && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/hal && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -942,7 +942,7 @@ build esp-idf/spi_flash/libspi_flash.a: C_STATIC_LIBRARY_LINKER____idf_spi_flash
 # Utility command for edit_cache
 
 build esp-idf/spi_flash/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/spi_flash && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/spi_flash && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -954,7 +954,7 @@ build esp-idf/spi_flash/edit_cache: phony esp-idf/spi_flash/CMakeFiles/edit_cach
 # Utility command for rebuild_cache
 
 build esp-idf/spi_flash/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/spi_flash && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/spi_flash && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1004,7 +1004,7 @@ build esp-idf/esp_bootloader_format/libesp_bootloader_format.a: C_STATIC_LIBRARY
 # Utility command for edit_cache
 
 build esp-idf/esp_bootloader_format/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_bootloader_format && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_bootloader_format && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -1016,7 +1016,7 @@ build esp-idf/esp_bootloader_format/edit_cache: phony esp-idf/esp_bootloader_for
 # Utility command for rebuild_cache
 
 build esp-idf/esp_bootloader_format/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_bootloader_format && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_bootloader_format && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1033,7 +1033,7 @@ build esp-idf/esp_bootloader_format/rebuild_cache: phony esp-idf/esp_bootloader_
 # Utility command for edit_cache
 
 build esp-idf/esp_app_format/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_app_format && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_app_format && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -1045,7 +1045,7 @@ build esp-idf/esp_app_format/edit_cache: phony esp-idf/esp_app_format/CMakeFiles
 # Utility command for rebuild_cache
 
 build esp-idf/esp_app_format/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_app_format && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_app_format && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1271,7 +1271,7 @@ build esp-idf/bootloader_support/libbootloader_support.a: C_STATIC_LIBRARY_LINKE
 # Utility command for edit_cache
 
 build esp-idf/bootloader_support/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/bootloader_support && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/bootloader_support && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -1283,7 +1283,7 @@ build esp-idf/bootloader_support/edit_cache: phony esp-idf/bootloader_support/CM
 # Utility command for rebuild_cache
 
 build esp-idf/bootloader_support/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/bootloader_support && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/bootloader_support && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1431,7 +1431,7 @@ build esp-idf/efuse/efuse_test_table: phony esp-idf/efuse/CMakeFiles/efuse_test_
 # Utility command for edit_cache
 
 build esp-idf/efuse/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/efuse && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/efuse && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -1443,7 +1443,7 @@ build esp-idf/efuse/edit_cache: phony esp-idf/efuse/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build esp-idf/efuse/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/efuse && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/efuse && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1462,7 +1462,7 @@ build esp-idf/efuse/CMakeFiles/efuse-common-table | ${cmake_ninja_workdir}esp-id
 # Custom command for esp-idf/efuse/CMakeFiles/efuse_common_table
 
 build esp-idf/efuse/CMakeFiles/efuse_common_table | ${cmake_ninja_workdir}esp-idf/efuse/CMakeFiles/efuse_common_table: CUSTOM_COMMAND || esp-idf/efuse/efuse-common-table
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/efuse && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -E echo
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/efuse && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -E echo
   DESC = Warning: command "efuse_common_table" is deprecated. Have you wanted to run "efuse-common-table" instead?
 
 
@@ -1470,7 +1470,7 @@ build esp-idf/efuse/CMakeFiles/efuse_common_table | ${cmake_ninja_workdir}esp-id
 # Custom command for esp-idf/efuse/CMakeFiles/efuse_custom_table
 
 build esp-idf/efuse/CMakeFiles/efuse_custom_table | ${cmake_ninja_workdir}esp-idf/efuse/CMakeFiles/efuse_custom_table: CUSTOM_COMMAND || esp-idf/efuse/efuse-custom-table
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/efuse && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -E echo
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/efuse && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -E echo
   DESC = Warning: command "efuse_custom_table" is deprecated. Have you wanted to run "efuse-custom-table" instead?
 
 
@@ -1485,7 +1485,7 @@ build esp-idf/efuse/CMakeFiles/show-efuse-table | ${cmake_ninja_workdir}esp-idf/
 # Custom command for esp-idf/efuse/CMakeFiles/show_efuse_table
 
 build esp-idf/efuse/CMakeFiles/show_efuse_table | ${cmake_ninja_workdir}esp-idf/efuse/CMakeFiles/show_efuse_table: CUSTOM_COMMAND || esp-idf/efuse/show-efuse-table
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/efuse && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake -E echo
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/efuse && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -E echo
   DESC = Warning: command "show_efuse_table" is deprecated. Have you wanted to run "show-efuse-table" instead?
 
 
@@ -1538,7 +1538,7 @@ build esp-idf/esp_system/libesp_system.a: C_STATIC_LIBRARY_LINKER____idf_esp_sys
 # Utility command for edit_cache
 
 build esp-idf/esp_system/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_system && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_system && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -1550,7 +1550,7 @@ build esp-idf/esp_system/edit_cache: phony esp-idf/esp_system/CMakeFiles/edit_ca
 # Utility command for rebuild_cache
 
 build esp-idf/esp_system/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_system && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_system && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1672,7 +1672,7 @@ build esp-idf/esp_hw_support/libesp_hw_support.a: C_STATIC_LIBRARY_LINKER____idf
 # Utility command for edit_cache
 
 build esp-idf/esp_hw_support/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -1684,7 +1684,7 @@ build esp-idf/esp_hw_support/edit_cache: phony esp-idf/esp_hw_support/CMakeFiles
 # Utility command for rebuild_cache
 
 build esp-idf/esp_hw_support/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1701,7 +1701,7 @@ build esp-idf/esp_hw_support/rebuild_cache: phony esp-idf/esp_hw_support/CMakeFi
 # Utility command for edit_cache
 
 build esp-idf/esp_hw_support/port/esp32s3/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support/port/esp32s3 && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support/port/esp32s3 && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -1713,7 +1713,7 @@ build esp-idf/esp_hw_support/port/esp32s3/edit_cache: phony esp-idf/esp_hw_suppo
 # Utility command for rebuild_cache
 
 build esp-idf/esp_hw_support/port/esp32s3/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support/port/esp32s3 && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support/port/esp32s3 && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1730,7 +1730,7 @@ build esp-idf/esp_hw_support/port/esp32s3/rebuild_cache: phony esp-idf/esp_hw_su
 # Utility command for edit_cache
 
 build esp-idf/esp_hw_support/lowpower/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support/lowpower && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support/lowpower && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -1742,7 +1742,7 @@ build esp-idf/esp_hw_support/lowpower/edit_cache: phony esp-idf/esp_hw_support/l
 # Utility command for rebuild_cache
 
 build esp-idf/esp_hw_support/lowpower/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support/lowpower && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support/lowpower && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1792,7 +1792,7 @@ build esp-idf/esp_common/libesp_common.a: C_STATIC_LIBRARY_LINKER____idf_esp_com
 # Utility command for edit_cache
 
 build esp-idf/esp_common/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_common && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_common && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -1804,7 +1804,7 @@ build esp-idf/esp_common/edit_cache: phony esp-idf/esp_common/CMakeFiles/edit_ca
 # Utility command for rebuild_cache
 
 build esp-idf/esp_common/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_common && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_common && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1934,7 +1934,7 @@ build esp-idf/esp_rom/libesp_rom.a: C_STATIC_LIBRARY_LINKER____idf_esp_rom_ esp-
 # Utility command for edit_cache
 
 build esp-idf/esp_rom/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_rom && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_rom && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -1946,7 +1946,7 @@ build esp-idf/esp_rom/edit_cache: phony esp-idf/esp_rom/CMakeFiles/edit_cache.ut
 # Utility command for rebuild_cache
 
 build esp-idf/esp_rom/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_rom && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_rom && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -2012,7 +2012,7 @@ build esp-idf/log/liblog.a: C_STATIC_LIBRARY_LINKER____idf_log_ esp-idf/log/CMak
 # Utility command for edit_cache
 
 build esp-idf/log/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/log && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/log && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -2024,7 +2024,7 @@ build esp-idf/log/edit_cache: phony esp-idf/log/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build esp-idf/log/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/log && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/log && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -2047,7 +2047,7 @@ build esp-idf/esptool_py/bootloader_check_size: phony esp-idf/esptool_py/CMakeFi
 # Utility command for edit_cache
 
 build esp-idf/esptool_py/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esptool_py && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esptool_py && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -2059,7 +2059,7 @@ build esp-idf/esptool_py/edit_cache: phony esp-idf/esptool_py/CMakeFiles/edit_ca
 # Utility command for rebuild_cache
 
 build esp-idf/esptool_py/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esptool_py && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esptool_py && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -2083,7 +2083,7 @@ build esp-idf/esptool_py/CMakeFiles/bootloader_check_size | ${cmake_ninja_workdi
 # Utility command for edit_cache
 
 build esp-idf/partition_table/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/partition_table && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/partition_table && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -2095,7 +2095,7 @@ build esp-idf/partition_table/edit_cache: phony esp-idf/partition_table/CMakeFil
 # Utility command for rebuild_cache
 
 build esp-idf/partition_table/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/partition_table && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/partition_table && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -2112,7 +2112,7 @@ build esp-idf/partition_table/rebuild_cache: phony esp-idf/partition_table/CMake
 # Utility command for edit_cache
 
 build esp-idf/bootloader/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/bootloader && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/bootloader && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -2124,7 +2124,7 @@ build esp-idf/bootloader/edit_cache: phony esp-idf/bootloader/CMakeFiles/edit_ca
 # Utility command for rebuild_cache
 
 build esp-idf/bootloader/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/bootloader && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/bootloader && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -2141,7 +2141,7 @@ build esp-idf/bootloader/rebuild_cache: phony esp-idf/bootloader/CMakeFiles/rebu
 # Utility command for edit_cache
 
 build esp-idf/freertos/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/freertos && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/freertos && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -2153,7 +2153,7 @@ build esp-idf/freertos/edit_cache: phony esp-idf/freertos/CMakeFiles/edit_cache.
 # Utility command for rebuild_cache
 
 build esp-idf/freertos/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/freertos && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/freertos && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -2203,7 +2203,7 @@ build esp-idf/main/libmain.a: C_STATIC_LIBRARY_LINKER____idf_main_ esp-idf/main/
 # Utility command for edit_cache
 
 build esp-idf/main/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/main && /opt/homebrew/Cellar/cmake/3.29.5/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/main && /opt/homebrew/Cellar/cmake/3.29.6/bin/ccmake -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -2215,7 +2215,7 @@ build esp-idf/main/edit_cache: phony esp-idf/main/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build esp-idf/main/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/main && /opt/homebrew/Cellar/cmake/3.29.5/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
+  COMMAND = cd /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/main && /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake --regenerate-during-build -S/Users/joshmillar/esp/esp-idf/components/bootloader/subproject -B/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -2475,14 +2475,14 @@ build esp-idf/xtensa/all: phony esp-idf/xtensa/libxtensa.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/sdkconfig /Users/joshmillar/esp/esp-idf/.git/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bootloader/subproject/components/micro-ecc/micro-ecc/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c2/esp32c2-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c3_family/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c5/esp32c5-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c6/esp32c6-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32h2/esp32h2-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/esp_ble_mesh/lib/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/host/nimble/nimble/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/cmock/CMock/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/esp_coex/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/esp_phy/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/esp_wifi/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/heap/tlsf/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/json/cJSON/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/lwip/lwip/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/mbedtls/mbedtls/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/mqtt/esp-mqtt/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/openthread/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/openthread/openthread/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/protobuf-c/protobuf-c/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/spiffs/spiffs/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/unity/unity/HEAD /Users/joshmillar/esp/esp-idf/.git/refs/heads/master /Users/joshmillar/esp/esp-idf/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/project_include.cmake /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/components/micro-ecc/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/components/micro-ecc/micro-ecc/.git /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/main/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader_support/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c2/esp32c2-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c3_family/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c5/esp32c5-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c6/esp32c6-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32h2/esp32h2-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/esp_ble_mesh/lib/lib/.git /Users/joshmillar/esp/esp-idf/components/bt/host/nimble/nimble/.git /Users/joshmillar/esp/esp-idf/components/cmock/CMock/.git /Users/joshmillar/esp/esp-idf/components/efuse/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/efuse/esp32s3/sources.cmake /Users/joshmillar/esp/esp-idf/components/esp_app_format/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_bootloader_format/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_coex/lib/.git /Users/joshmillar/esp/esp-idf/components/esp_common/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_common/project_include.cmake /Users/joshmillar/esp/esp-idf/components/esp_hw_support/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_hw_support/lowpower/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_hw_support/port/esp32s3/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_phy/lib/.git /Users/joshmillar/esp/esp-idf/components/esp_rom/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_system/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_wifi/lib/.git /Users/joshmillar/esp/esp-idf/components/esptool_py/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esptool_py/espefuse.cmake /Users/joshmillar/esp/esp-idf/components/esptool_py/project_include.cmake /Users/joshmillar/esp/esp-idf/components/freertos/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/hal/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/heap/tlsf/.git /Users/joshmillar/esp/esp-idf/components/json/cJSON/.git /Users/joshmillar/esp/esp-idf/components/log/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/lwip/lwip/.git /Users/joshmillar/esp/esp-idf/components/mbedtls/mbedtls/.git /Users/joshmillar/esp/esp-idf/components/mqtt/esp-mqtt/.git /Users/joshmillar/esp/esp-idf/components/newlib/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/newlib/project_include.cmake /Users/joshmillar/esp/esp-idf/components/openthread/lib/.git /Users/joshmillar/esp/esp-idf/components/openthread/openthread/.git /Users/joshmillar/esp/esp-idf/components/partition_table/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/partition_table/project_include.cmake /Users/joshmillar/esp/esp-idf/components/protobuf-c/protobuf-c/.git /Users/joshmillar/esp/esp-idf/components/soc/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/spi_flash/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/spiffs/spiffs/.git /Users/joshmillar/esp/esp-idf/components/unity/unity/.git /Users/joshmillar/esp/esp-idf/components/xtensa/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/xtensa/project_include.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/build.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/component.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/depgraph.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/dfu.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/git_submodules.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/idf.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/kconfig.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/ldgen.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/project.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/project_description.json.in /Users/joshmillar/esp/esp-idf/tools/cmake/targets.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/third_party/GetGitRevisionDescription.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/third_party/GetGitRevisionDescription.cmake.in /Users/joshmillar/esp/esp-idf/tools/cmake/tool_version_check.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/toolchain-esp32s3.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/utilities.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/version.cmake /Users/joshmillar/esp/esp-idf/tools/kconfig_new/confgen.py /Users/joshmillar/esp/esp-idf/tools/kconfig_new/config.env.in /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeASMInformation.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeCInformation.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CheckCCompilerFlag.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CheckCSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CheckCXXCompilerFlag.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CheckCXXSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Compiler/GNU-ASM.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Compiler/GNU-C.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Compiler/GNU-CXX.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/ExternalProject.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/FindGit.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/FindPackageMessage.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Internal/CheckCompilerFlag.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/3.29.5/CMakeASMCompiler.cmake CMakeFiles/3.29.5/CMakeCCompiler.cmake CMakeFiles/3.29.5/CMakeCXXCompiler.cmake CMakeFiles/3.29.5/CMakeSystem.cmake CMakeFiles/git-data/grabRef.cmake config/sdkconfig.cmake config/sdkconfig.h
+build build.ninja: RERUN_CMAKE | /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/sdkconfig /Users/joshmillar/esp/esp-idf/.git/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bootloader/subproject/components/micro-ecc/micro-ecc/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c2/esp32c2-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c3_family/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c5/esp32c5-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c6/esp32c6-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32h2/esp32h2-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/esp_ble_mesh/lib/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/host/nimble/nimble/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/cmock/CMock/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/esp_coex/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/esp_phy/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/esp_wifi/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/heap/tlsf/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/json/cJSON/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/lwip/lwip/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/mbedtls/mbedtls/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/mqtt/esp-mqtt/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/openthread/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/openthread/openthread/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/protobuf-c/protobuf-c/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/spiffs/spiffs/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/unity/unity/HEAD /Users/joshmillar/esp/esp-idf/.git/refs/heads/master /Users/joshmillar/esp/esp-idf/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/project_include.cmake /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/components/micro-ecc/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/components/micro-ecc/micro-ecc/.git /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/main/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader_support/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c2/esp32c2-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c3_family/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c5/esp32c5-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c6/esp32c6-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32h2/esp32h2-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/esp_ble_mesh/lib/lib/.git /Users/joshmillar/esp/esp-idf/components/bt/host/nimble/nimble/.git /Users/joshmillar/esp/esp-idf/components/cmock/CMock/.git /Users/joshmillar/esp/esp-idf/components/efuse/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/efuse/esp32s3/sources.cmake /Users/joshmillar/esp/esp-idf/components/esp_app_format/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_bootloader_format/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_coex/lib/.git /Users/joshmillar/esp/esp-idf/components/esp_common/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_common/project_include.cmake /Users/joshmillar/esp/esp-idf/components/esp_hw_support/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_hw_support/lowpower/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_hw_support/port/esp32s3/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_phy/lib/.git /Users/joshmillar/esp/esp-idf/components/esp_rom/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_system/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_wifi/lib/.git /Users/joshmillar/esp/esp-idf/components/esptool_py/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esptool_py/espefuse.cmake /Users/joshmillar/esp/esp-idf/components/esptool_py/project_include.cmake /Users/joshmillar/esp/esp-idf/components/freertos/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/hal/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/heap/tlsf/.git /Users/joshmillar/esp/esp-idf/components/json/cJSON/.git /Users/joshmillar/esp/esp-idf/components/log/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/lwip/lwip/.git /Users/joshmillar/esp/esp-idf/components/mbedtls/mbedtls/.git /Users/joshmillar/esp/esp-idf/components/mqtt/esp-mqtt/.git /Users/joshmillar/esp/esp-idf/components/newlib/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/newlib/project_include.cmake /Users/joshmillar/esp/esp-idf/components/openthread/lib/.git /Users/joshmillar/esp/esp-idf/components/openthread/openthread/.git /Users/joshmillar/esp/esp-idf/components/partition_table/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/partition_table/project_include.cmake /Users/joshmillar/esp/esp-idf/components/protobuf-c/protobuf-c/.git /Users/joshmillar/esp/esp-idf/components/soc/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/spi_flash/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/spiffs/spiffs/.git /Users/joshmillar/esp/esp-idf/components/unity/unity/.git /Users/joshmillar/esp/esp-idf/components/xtensa/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/xtensa/project_include.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/build.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/component.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/depgraph.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/dfu.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/git_submodules.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/idf.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/kconfig.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/ldgen.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/project.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/project_description.json.in /Users/joshmillar/esp/esp-idf/tools/cmake/targets.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/third_party/GetGitRevisionDescription.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/third_party/GetGitRevisionDescription.cmake.in /Users/joshmillar/esp/esp-idf/tools/cmake/tool_version_check.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/toolchain-esp32s3.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/utilities.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/version.cmake /Users/joshmillar/esp/esp-idf/tools/kconfig_new/confgen.py /Users/joshmillar/esp/esp-idf/tools/kconfig_new/config.env.in /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeASMInformation.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeCInformation.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CheckCCompilerFlag.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CheckCSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CheckCXXCompilerFlag.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CheckCXXSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Compiler/GNU-ASM.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Compiler/GNU-C.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Compiler/GNU-CXX.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/ExternalProject.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/FindGit.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/FindPackageMessage.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Internal/CheckCompilerFlag.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/3.29.6/CMakeASMCompiler.cmake CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeCXXCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake CMakeFiles/git-data/grabRef.cmake config/sdkconfig.cmake config/sdkconfig.h
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/sdkconfig /Users/joshmillar/esp/esp-idf/.git/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bootloader/subproject/components/micro-ecc/micro-ecc/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c2/esp32c2-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c3_family/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c5/esp32c5-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c6/esp32c6-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32h2/esp32h2-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/esp_ble_mesh/lib/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/host/nimble/nimble/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/cmock/CMock/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/esp_coex/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/esp_phy/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/esp_wifi/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/heap/tlsf/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/json/cJSON/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/lwip/lwip/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/mbedtls/mbedtls/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/mqtt/esp-mqtt/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/openthread/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/openthread/openthread/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/protobuf-c/protobuf-c/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/spiffs/spiffs/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/unity/unity/HEAD /Users/joshmillar/esp/esp-idf/.git/refs/heads/master /Users/joshmillar/esp/esp-idf/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/project_include.cmake /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/components/micro-ecc/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/components/micro-ecc/micro-ecc/.git /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/main/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader_support/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c2/esp32c2-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c3_family/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c5/esp32c5-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c6/esp32c6-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32h2/esp32h2-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/esp_ble_mesh/lib/lib/.git /Users/joshmillar/esp/esp-idf/components/bt/host/nimble/nimble/.git /Users/joshmillar/esp/esp-idf/components/cmock/CMock/.git /Users/joshmillar/esp/esp-idf/components/efuse/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/efuse/esp32s3/sources.cmake /Users/joshmillar/esp/esp-idf/components/esp_app_format/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_bootloader_format/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_coex/lib/.git /Users/joshmillar/esp/esp-idf/components/esp_common/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_common/project_include.cmake /Users/joshmillar/esp/esp-idf/components/esp_hw_support/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_hw_support/lowpower/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_hw_support/port/esp32s3/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_phy/lib/.git /Users/joshmillar/esp/esp-idf/components/esp_rom/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_system/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_wifi/lib/.git /Users/joshmillar/esp/esp-idf/components/esptool_py/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esptool_py/espefuse.cmake /Users/joshmillar/esp/esp-idf/components/esptool_py/project_include.cmake /Users/joshmillar/esp/esp-idf/components/freertos/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/hal/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/heap/tlsf/.git /Users/joshmillar/esp/esp-idf/components/json/cJSON/.git /Users/joshmillar/esp/esp-idf/components/log/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/lwip/lwip/.git /Users/joshmillar/esp/esp-idf/components/mbedtls/mbedtls/.git /Users/joshmillar/esp/esp-idf/components/mqtt/esp-mqtt/.git /Users/joshmillar/esp/esp-idf/components/newlib/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/newlib/project_include.cmake /Users/joshmillar/esp/esp-idf/components/openthread/lib/.git /Users/joshmillar/esp/esp-idf/components/openthread/openthread/.git /Users/joshmillar/esp/esp-idf/components/partition_table/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/partition_table/project_include.cmake /Users/joshmillar/esp/esp-idf/components/protobuf-c/protobuf-c/.git /Users/joshmillar/esp/esp-idf/components/soc/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/spi_flash/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/spiffs/spiffs/.git /Users/joshmillar/esp/esp-idf/components/unity/unity/.git /Users/joshmillar/esp/esp-idf/components/xtensa/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/xtensa/project_include.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/build.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/component.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/depgraph.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/dfu.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/git_submodules.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/idf.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/kconfig.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/ldgen.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/project.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/project_description.json.in /Users/joshmillar/esp/esp-idf/tools/cmake/targets.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/third_party/GetGitRevisionDescription.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/third_party/GetGitRevisionDescription.cmake.in /Users/joshmillar/esp/esp-idf/tools/cmake/tool_version_check.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/toolchain-esp32s3.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/utilities.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/version.cmake /Users/joshmillar/esp/esp-idf/tools/kconfig_new/confgen.py /Users/joshmillar/esp/esp-idf/tools/kconfig_new/config.env.in /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeASMInformation.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeCInformation.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CheckCCompilerFlag.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CheckCSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CheckCXXCompilerFlag.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/CheckCXXSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Compiler/GNU-ASM.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Compiler/GNU-C.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Compiler/GNU-CXX.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/ExternalProject.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/FindGit.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/FindPackageMessage.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Internal/CheckCompilerFlag.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.29.5/share/cmake/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/3.29.5/CMakeASMCompiler.cmake CMakeFiles/3.29.5/CMakeCCompiler.cmake CMakeFiles/3.29.5/CMakeCXXCompiler.cmake CMakeFiles/3.29.5/CMakeSystem.cmake CMakeFiles/git-data/grabRef.cmake config/sdkconfig.cmake config/sdkconfig.h: phony
+build /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/sdkconfig /Users/joshmillar/esp/esp-idf/.git/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bootloader/subproject/components/micro-ecc/micro-ecc/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c2/esp32c2-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c3_family/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c5/esp32c5-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c6/esp32c6-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/controller/lib_esp32h2/esp32h2-bt-lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/esp_ble_mesh/lib/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/bt/host/nimble/nimble/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/cmock/CMock/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/esp_coex/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/esp_phy/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/esp_wifi/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/heap/tlsf/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/json/cJSON/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/lwip/lwip/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/mbedtls/mbedtls/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/mqtt/esp-mqtt/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/openthread/lib/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/openthread/openthread/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/protobuf-c/protobuf-c/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/spiffs/spiffs/HEAD /Users/joshmillar/esp/esp-idf/.git/modules/components/unity/unity/HEAD /Users/joshmillar/esp/esp-idf/.git/refs/heads/master /Users/joshmillar/esp/esp-idf/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/project_include.cmake /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/components/micro-ecc/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/components/micro-ecc/micro-ecc/.git /Users/joshmillar/esp/esp-idf/components/bootloader/subproject/main/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bootloader_support/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c2/esp32c2-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c3_family/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c5/esp32c5-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32c6/esp32c6-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/controller/lib_esp32h2/esp32h2-bt-lib/.git /Users/joshmillar/esp/esp-idf/components/bt/esp_ble_mesh/lib/lib/.git /Users/joshmillar/esp/esp-idf/components/bt/host/nimble/nimble/.git /Users/joshmillar/esp/esp-idf/components/cmock/CMock/.git /Users/joshmillar/esp/esp-idf/components/efuse/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/efuse/esp32s3/sources.cmake /Users/joshmillar/esp/esp-idf/components/esp_app_format/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_bootloader_format/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_coex/lib/.git /Users/joshmillar/esp/esp-idf/components/esp_common/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_common/project_include.cmake /Users/joshmillar/esp/esp-idf/components/esp_hw_support/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_hw_support/lowpower/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_hw_support/port/esp32s3/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_phy/lib/.git /Users/joshmillar/esp/esp-idf/components/esp_rom/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_system/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esp_wifi/lib/.git /Users/joshmillar/esp/esp-idf/components/esptool_py/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/esptool_py/espefuse.cmake /Users/joshmillar/esp/esp-idf/components/esptool_py/project_include.cmake /Users/joshmillar/esp/esp-idf/components/freertos/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/hal/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/heap/tlsf/.git /Users/joshmillar/esp/esp-idf/components/json/cJSON/.git /Users/joshmillar/esp/esp-idf/components/log/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/lwip/lwip/.git /Users/joshmillar/esp/esp-idf/components/mbedtls/mbedtls/.git /Users/joshmillar/esp/esp-idf/components/mqtt/esp-mqtt/.git /Users/joshmillar/esp/esp-idf/components/newlib/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/newlib/project_include.cmake /Users/joshmillar/esp/esp-idf/components/openthread/lib/.git /Users/joshmillar/esp/esp-idf/components/openthread/openthread/.git /Users/joshmillar/esp/esp-idf/components/partition_table/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/partition_table/project_include.cmake /Users/joshmillar/esp/esp-idf/components/protobuf-c/protobuf-c/.git /Users/joshmillar/esp/esp-idf/components/soc/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/spi_flash/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/spiffs/spiffs/.git /Users/joshmillar/esp/esp-idf/components/unity/unity/.git /Users/joshmillar/esp/esp-idf/components/xtensa/CMakeLists.txt /Users/joshmillar/esp/esp-idf/components/xtensa/project_include.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/build.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/component.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/depgraph.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/dfu.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/git_submodules.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/idf.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/kconfig.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/ldgen.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/project.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/project_description.json.in /Users/joshmillar/esp/esp-idf/tools/cmake/targets.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/third_party/GetGitRevisionDescription.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/third_party/GetGitRevisionDescription.cmake.in /Users/joshmillar/esp/esp-idf/tools/cmake/tool_version_check.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/toolchain-esp32s3.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/utilities.cmake /Users/joshmillar/esp/esp-idf/tools/cmake/version.cmake /Users/joshmillar/esp/esp-idf/tools/kconfig_new/confgen.py /Users/joshmillar/esp/esp-idf/tools/kconfig_new/config.env.in /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeASMInformation.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeCInformation.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CheckCCompilerFlag.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CheckCSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CheckCXXCompilerFlag.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CheckCXXSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Compiler/GNU-ASM.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Compiler/GNU-C.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Compiler/GNU-CXX.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/ExternalProject.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/FindGit.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/FindPackageMessage.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Internal/CheckCompilerFlag.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/3.29.6/CMakeASMCompiler.cmake CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeCXXCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake CMakeFiles/git-data/grabRef.cmake config/sdkconfig.cmake config/sdkconfig.h: phony
 
 
 #############################################

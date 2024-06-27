@@ -5,6 +5,7 @@
 #include <esp_camera.h>
 #include <esp_sleep.h>
 #include <esp_timer.h>
+#include <esp_wifi.h>
 #include <esp_log.h>
 
 #include "cam.h"
@@ -19,34 +20,10 @@ esp_err_t error;
 int warm_up = 0;
 
 const size_t SAMPLE_RATE = 16000; 
-const size_t RECORD_DURATION_SECONDS = 10;
+const size_t RECORD_DURATION_SECONDS = 1;
 const size_t TOTAL_SAMPLES = SAMPLE_RATE * RECORD_DURATION_SECONDS;
 
 const gpio_num_t PIR = GPIO_NUM_11;
-
-void loop() {
-    vTaskDelay(pdMS_TO_TICKS(3000));
-    while (true) 
-    {
-        /*--------------------------------------------------------------------------------*/
-        int output = gpio_get_level(PIR);
-        ESP_LOGI(TAG, "%d", output);
-        if (output == 0) {
-            if (warm_up == 1) {
-                ESP_LOGI(TAG, "warming up");
-                warm_up = 0;
-                vTaskDelay(pdMS_TO_TICKS(30));
-            }
-            vTaskDelay(pdMS_TO_TICKS(10));
-        } else {
-            ESP_LOGI(TAG, "motion detected");
-            warm_up = 1;
-            vTaskDelay(pdMS_TO_TICKS(10));
-        }
-        vTaskDelay(pdMS_TO_TICKS(1000));
-        /*--------------------------------------------------------------------------------*/
-    }
-}
 
 void sleep_config()
 {
@@ -60,26 +37,113 @@ void sleep_config()
 
     // other v sources
     PowerFeather::Board.enableVSQT(false);
-    gpio_reset_pin(GPIO_NUM_15);
-    gpio_reset_pin(GPIO_NUM_16);
-    gpio_reset_pin(GPIO_NUM_37);
-    gpio_reset_pin(GPIO_NUM_6);
-    gpio_reset_pin(GPIO_NUM_17);
-    gpio_reset_pin(GPIO_NUM_18);
-    gpio_reset_pin(GPIO_NUM_45);
-    gpio_reset_pin(GPIO_NUM_12);
-    gpio_reset_pin(GPIO_NUM_44);
-    gpio_reset_pin(GPIO_NUM_42);
-    gpio_reset_pin(GPIO_NUM_41);
-    gpio_reset_pin(GPIO_NUM_40);
-    gpio_reset_pin(GPIO_NUM_39);
-    gpio_reset_pin(GPIO_NUM_43);
-    gpio_reset_pin(GPIO_NUM_36);
-    gpio_reset_pin(GPIO_NUM_35);
-    gpio_reset_pin(GPIO_NUM_21); 
-    gpio_reset_pin(GPIO_NUM_5); 
-    gpio_reset_pin(GPIO_NUM_46); 
-    gpio_reset_pin(GPIO_NUM_0);
+}
+
+void loop() {
+    while (true) 
+    {
+        if (esp_sleep_get_wakeup_cause() == ESP_SLEEP_WAKEUP_EXT0)
+        {
+            PowerFeather::Board.enable3V3(true); 
+            gpio_reset_pin(PowerFeather::Mainboard::Pin::A0);
+            rtc_gpio_isolate(PowerFeather::Mainboard::Pin::D13);
+            
+            if(ESP_OK != init_cam()) 
+            {
+                return;
+            }
+    
+            sensor_t * sensor = esp_camera_sensor_get();
+            sensor->set_whitebal(sensor, 1);
+            sensor->set_awb_gain(sensor, 1);
+            sensor->set_wb_mode(sensor, 0);
+            
+            size_t _jpg_buf_len;
+            uint8_t * _jpg_buf;
+            camera_fb_t *fb = esp_camera_fb_get();
+            if (!fb) 
+            {
+                ESP_LOGE(TAG, "capture failed");
+                return;
+            }
+
+            bool jpeg_converted = frame2jpg(fb, 80, &_jpg_buf, &_jpg_buf_len);
+            if(!jpeg_converted)
+            {
+                ESP_LOGE(TAG, "JPEG compression failed");
+                esp_camera_fb_return(fb);
+            }
+
+            // wifi_init();
+            // esp_err_t err = wifi_send_image(_jpg_buf, _jpg_buf_len);
+            // if (err != ESP_OK) 
+            // {
+            //     ESP_LOGE(TAG, "failed to send image: %s", esp_err_to_name(err));
+            // } 
+            // else 
+            // {
+            //     ESP_LOGI(TAG, "image sent");
+            // }
+            // esp_wifi_stop();
+            // esp_wifi_deinit();
+            
+            free(_jpg_buf);
+            esp_camera_fb_return(fb);
+
+            while(gpio_get_level(PIR)==1) //TODO - fix PIR sensitivity 
+            {
+                ESP_LOGI(TAG, "waiting");
+            }
+
+            sleep_config();
+            esp_camera_deinit();
+            esp_deep_sleep(10 * 3000000);
+        }
+        else
+        {
+            PowerFeather::Board.setEN(true);
+            mic_init();
+
+            int16_t* readings = (int16_t*)malloc(sizeof(int16_t) * TOTAL_SAMPLES);
+            size_t total_samples_read = 0;
+            if (readings == nullptr) 
+            {
+                ESP_LOGE(TAG, "memory allocation failed");
+                return;
+            }
+
+            int64_t start_time = esp_timer_get_time();
+            ESP_LOGI(TAG, "recording...");
+            while (esp_timer_get_time() - start_time < RECORD_DURATION_SECONDS * 1000000) 
+            {
+                total_samples_read += mic_read(readings + total_samples_read, TOTAL_SAMPLES - total_samples_read);
+            }
+            if (total_samples_read == 0) 
+            {
+                ESP_LOGE(TAG, "no data recorded");
+                mic_deinit();
+                mic_init();
+                free(readings);
+                return;
+            } 
+            mic_deinit();
+
+            /* note: wifi transmission whilst recording causes noise on power line */
+            // wifi_init();
+            // ESP_LOGI(TAG, "sending: %u readings", total_samples_read);
+            // esp_err_t error = wifi_send_audio(readings, total_samples_read);
+            // if (error != ESP_OK) 
+            // {
+            //     ESP_LOGE(TAG, "sending failed: %s", esp_err_to_name(error));
+            // }
+            // esp_wifi_stop();
+            // esp_wifi_deinit();
+
+            free(readings);
+            sleep_config();
+            esp_deep_sleep(10 * 3000000);
+        }
+    }
 }
 
 extern "C" void app_main()
@@ -103,63 +167,6 @@ extern "C" void app_main()
         printf("board init success\n");
         inited = true;
     }
-
-    /*--------------------------------------------------------------------------------*/
-    // esp_sleep_enable_timer_wakeup(30 * 1000000);
-    // sleep_config();
-    // esp_deep_sleep_start();
-    /*--------------------------------------------------------------------------------*/
-    /* deep sleep wake-up and image capture (every 30s) */
-    // rtc_gpio_isolate(PowerFeather::Mainboard::Pin::D13);
-    // PowerFeather::Board.enable3V3(true); 
-    // if (esp_sleep_get_wakeup_cause() == ESP_SLEEP_WAKEUP_EXT0) 
-    // {
-    //     PowerFeather::Board.enable3V3(true); 
-    //     if(ESP_OK != init_cam()) 
-    //     {
-    //         return;
-    //     }
-    //     capture();
-    // }
-    // sleep_config();
-    // esp_sleep_enable_timer_wakeup(30 * 1000000);
-    // esp_deep_sleep_start();
-    /*--------------------------------------------------------------------------------*/
-    /* deep sleep wake-up and record for 30s (every 30s) */
-    /* Note: wifi transmission + recording causes noise on power line */
-    // PowerFeather::Board.setEN(true);
-    // mic_init();
-    // // wifi_init();
-    // int16_t* readings = (int16_t*)malloc(sizeof(int16_t) * TOTAL_SAMPLES);
-    // size_t total_samples_read = 0;
-    // if (readings == nullptr) 
-    // {
-    //     ESP_LOGE(TAG, "memory allocation failed");
-    //     return;
-    // }
-    // int64_t start_time = esp_timer_get_time();
-    // while (esp_timer_get_time() - start_time < RECORD_DURATION_SECONDS * 1000000) 
-    // {
-    //     total_samples_read += mic_read(readings + total_samples_read, TOTAL_SAMPLES - total_samples_read);
-    // }
-    // if (total_samples_read == 0) 
-    // {
-    //     ESP_LOGE(TAG, "no data read");
-    //     mic_deinit();
-    //     mic_init();
-    //     free(readings);
-    //     return;
-    // }
-    // // ESP_LOGI(TAG, "sending: %u readings", total_samples_read);
-    // // esp_err_t error = wifi_send(readings, total_samples_read);
-    // // if (error != ESP_OK) 
-    // // {
-    // //     ESP_LOGE(TAG, "sending failed: %s", esp_err_to_name(error));
-    // // }
-    // free(readings);
-    // PowerFeather::Board.setEN(false);
-    // esp_deep_sleep(30 * 1000000);
-    /*--------------------------------------------------------------------------------*/
 
     loop();
 }

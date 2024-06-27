@@ -25,7 +25,7 @@ static camera_config_t camera_config = {
     .ledc_channel = LEDC_CHANNEL_0,
     .pixel_format = PIXFORMAT_RGB565, // YUV422,GRAYSCALE,RGB565,JPEG,...
     .frame_size = FRAMESIZE_QVGA, 
-    .jpeg_quality = 12, // 1-30, lower = better
+    .jpeg_quality = 1, // 1-30, lower = better
     .fb_count = 1,
     .fb_location = CAMERA_FB_IN_PSRAM,
     .grab_mode = CAMERA_GRAB_WHEN_EMPTY,
@@ -40,15 +40,4 @@ esp_err_t init_cam(void)
         return err;
     }
     return ESP_OK;
-}
-
-void capture()
-{
-    camera_fb_t *pic = esp_camera_fb_get();
-    if (pic) {
-        ESP_LOGI(TAG, "capture success");
-        esp_camera_fb_return(pic);
-    } else {
-        ESP_LOGE(TAG, "capture failed");
-    }
 }

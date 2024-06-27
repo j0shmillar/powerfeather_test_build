@@ -23,6 +23,5 @@
 #define CAM_PIN_PCLK   1   //PC
 
 esp_err_t init_cam(void);
-void capture(void);
 
 #endif

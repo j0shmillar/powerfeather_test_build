@@ -24,7 +24,7 @@ Mic
 - VDD -> EN, GND -> GND2
 
 PIR
-- VDD -> VS, GND -> GND2, SD->D13
+- VDD -> VBAT*, GND -> GND2, SD->D13
 
 ## Notes
 - PowerFeather only has 2 GND.

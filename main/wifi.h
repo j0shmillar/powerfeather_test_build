@@ -15,9 +15,10 @@
 
 extern EventGroupHandle_t s_wifi_event_group;
 
+void http_init();
 void wifi_init();
 void wifi_event_handler(void* arg, esp_event_base_t event_base, int32_t event_id, void* event_data);
-void http_init();
-esp_err_t wifi_send(const int16_t* const samples, size_t count);
+esp_err_t wifi_send_audio(const int16_t* const samples, size_t count);
+esp_err_t wifi_send_image(const uint8_t* image_data, size_t length);
 
 #endif
