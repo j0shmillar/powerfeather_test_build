@@ -7,6 +7,7 @@
 #include <esp_timer.h>
 #include <esp_wifi.h>
 #include <esp_log.h>
+#include <esp_pm.h>
 
 #include "cam.h"
 #include "mic.h"
@@ -17,13 +18,17 @@ static const char *TAG = "powerfeather";
 bool inited = false;
 esp_err_t error;
 
-int warm_up = 0;
-
 const size_t SAMPLE_RATE = 16000; 
 const size_t RECORD_DURATION_SECONDS = 3;
 const size_t TOTAL_SAMPLES = SAMPLE_RATE * RECORD_DURATION_SECONDS;
 
 const gpio_num_t PIR = GPIO_NUM_11;
+
+//TODO 
+// - consumption drops post cam wake up to ~70uA then increase to ~90uA ... why?
+// - update CONFIG_ESP32S3_DEEP_SLEEP_WAKEUP_DELAY 
+// - add core tasks
+// - PRIOR: reduce MIC I
 
 void sleep_config()
 {
@@ -34,8 +39,10 @@ void sleep_config()
     // mic - power down
     PowerFeather::Board.setEN(false); 
 
+
     // cam - power down
     PowerFeather::Board.enable3V3(false);
+
     rtc_gpio_init(PowerFeather::Mainboard::Pin::A0);
     rtc_gpio_set_direction_in_sleep(PowerFeather::Mainboard::Pin::A0, RTC_GPIO_MODE_INPUT_ONLY); 
     rtc_gpio_set_level(PowerFeather::Mainboard::Pin::A0, 1);
@@ -43,9 +50,6 @@ void sleep_config()
 
     // other v sources
     PowerFeather::Board.enableVSQT(false);
-
-    esp_wifi_stop();
-    esp_wifi_deinit();
 }
 
 void loop() {
@@ -98,7 +102,7 @@ void loop() {
             free(_jpg_buf);
             esp_camera_fb_return(fb);
 
-            while(gpio_get_level(PIR)==1) //TODO - fix PIR sensitivity ...why is PIR good for a while on VBAT, then on  VS, then VBAT, etc?
+            while(gpio_get_level(PIR)==1) //TODO - fix sensitivity 
             {
                 ESP_LOGI(TAG, "waiting");
             }
@@ -156,15 +160,16 @@ void loop() {
 
 extern "C" void app_main()
 {
-    // PIR // HERE
-    // gpio_reset_pin(PIR);
-    // gpio_set_direction(PIR, GPIO_MODE_INPUT); 
-    // esp_sleep_enable_ext0_wakeup(PIR, 1);
-
     rtc_gpio_init(PIR);
     rtc_gpio_set_direction(PIR, RTC_GPIO_MODE_INPUT_ONLY); 
     rtc_gpio_wakeup_enable(PIR, GPIO_INTR_HIGH_LEVEL);
-    
+
+    // esp_pm_config_t pm_config = {
+    //         .max_freq_mhz = 80,
+    //         .min_freq_mhz = 80,
+    //         .light_sleep_enable = true};
+    // esp_pm_configure(&pm_config);
+
     if (PowerFeather::Board.init(BATTERY_CAPACITY) == PowerFeather::Result::Ok)
     {
         PowerFeather::Board.enableBatteryCharging(false);
