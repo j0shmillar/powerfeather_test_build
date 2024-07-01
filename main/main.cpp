@@ -20,23 +20,32 @@ esp_err_t error;
 int warm_up = 0;
 
 const size_t SAMPLE_RATE = 16000; 
-const size_t RECORD_DURATION_SECONDS = 1;
+const size_t RECORD_DURATION_SECONDS = 3;
 const size_t TOTAL_SAMPLES = SAMPLE_RATE * RECORD_DURATION_SECONDS;
 
 const gpio_num_t PIR = GPIO_NUM_11;
 
 void sleep_config()
 {
+    rtc_gpio_init(PIR);
+    rtc_gpio_set_direction_in_sleep(PIR, RTC_GPIO_MODE_INPUT_ONLY);
+    esp_sleep_enable_ext0_wakeup(PIR, 1);
+
     // mic - power down
     PowerFeather::Board.setEN(false); 
 
     // cam - power down
     PowerFeather::Board.enable3V3(false);
-    gpio_set_level(PowerFeather::Mainboard::Pin::A0, 1);
+    rtc_gpio_init(PowerFeather::Mainboard::Pin::A0);
+    rtc_gpio_set_direction_in_sleep(PowerFeather::Mainboard::Pin::A0, RTC_GPIO_MODE_INPUT_ONLY); 
+    rtc_gpio_set_level(PowerFeather::Mainboard::Pin::A0, 1);
     rtc_gpio_hold_en(PowerFeather::Mainboard::Pin::A0);
 
     // other v sources
     PowerFeather::Board.enableVSQT(false);
+
+    esp_wifi_stop();
+    esp_wifi_deinit();
 }
 
 void loop() {
@@ -45,8 +54,7 @@ void loop() {
         if (esp_sleep_get_wakeup_cause() == ESP_SLEEP_WAKEUP_EXT0)
         {
             PowerFeather::Board.enable3V3(true); 
-            gpio_reset_pin(PowerFeather::Mainboard::Pin::A0);
-            rtc_gpio_isolate(PowerFeather::Mainboard::Pin::D13);
+            rtc_gpio_set_level(PowerFeather::Mainboard::Pin::A0, 0);
             
             if(ESP_OK != init_cam()) 
             {
@@ -90,13 +98,13 @@ void loop() {
             free(_jpg_buf);
             esp_camera_fb_return(fb);
 
-            while(gpio_get_level(PIR)==1) //TODO - fix PIR sensitivity 
+            while(gpio_get_level(PIR)==1) //TODO - fix PIR sensitivity ...why is PIR good for a while on VBAT, then on  VS, then VBAT, etc?
             {
                 ESP_LOGI(TAG, "waiting");
             }
 
-            sleep_config();
             esp_camera_deinit();
+            sleep_config();
             esp_deep_sleep(10 * 3000000);
         }
         else
@@ -126,6 +134,7 @@ void loop() {
                 free(readings);
                 return;
             } 
+            free(readings);
             mic_deinit();
 
             /* note: wifi transmission whilst recording causes noise on power line */
@@ -139,7 +148,6 @@ void loop() {
             // esp_wifi_stop();
             // esp_wifi_deinit();
 
-            free(readings);
             sleep_config();
             esp_deep_sleep(10 * 3000000);
         }
@@ -148,16 +156,14 @@ void loop() {
 
 extern "C" void app_main()
 {
-    gpio_reset_pin(PowerFeather::Mainboard::Pin::BTN);
-    gpio_set_direction(PowerFeather::Mainboard::Pin::BTN, GPIO_MODE_INPUT);
+    // PIR // HERE
+    // gpio_reset_pin(PIR);
+    // gpio_set_direction(PIR, GPIO_MODE_INPUT); 
+    // esp_sleep_enable_ext0_wakeup(PIR, 1);
 
-    gpio_reset_pin(PowerFeather::Mainboard::Pin::LED);
-    gpio_set_direction(PowerFeather::Mainboard::Pin::LED, GPIO_MODE_INPUT_OUTPUT);
-
-    // PIR
-    gpio_reset_pin(PIR);
-    gpio_set_direction(PIR, GPIO_MODE_INPUT); 
-    esp_sleep_enable_ext0_wakeup(PIR, 1);
+    rtc_gpio_init(PIR);
+    rtc_gpio_set_direction(PIR, RTC_GPIO_MODE_INPUT_ONLY); 
+    rtc_gpio_wakeup_enable(PIR, GPIO_INTR_HIGH_LEVEL);
     
     if (PowerFeather::Board.init(BATTERY_CAPACITY) == PowerFeather::Result::Ok)
     {
