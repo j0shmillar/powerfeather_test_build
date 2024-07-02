@@ -39,7 +39,6 @@ void sleep_config()
     // mic - power down
     PowerFeather::Board.setEN(false); 
 
-
     // cam - power down
     PowerFeather::Board.enable3V3(false);
 
