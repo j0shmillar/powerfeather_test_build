@@ -7,7 +7,7 @@
 #include <esp_event.h>
 #include <esp_err.h>
 
-#define WIFI_SSID "SSID"
+#define WIFI_SSID "iPhone (101)"
 #define WIFI_PASS "password"
 #define WIFI_MAX_RETRY 5
 #define WIFI_CONNECTED_BIT BIT0

@@ -15,7 +15,7 @@ static int s_wifi_retry_num = 0;
 
 void http_init() {
     esp_http_client_config_t config = {
-        .host = "192.168.1.144",
+        .host = "172.20.10.7",
         .port = 5003,
         .auth_type = HTTP_AUTH_TYPE_NONE,
         .path = "/samples",
@@ -25,7 +25,7 @@ void http_init() {
     s_http_client = esp_http_client_init(&config);
 
     if (s_http_client == NULL) {
-        ESP_LOGE(TAG, "Failed to initialize HTTP client");
+        ESP_LOGE(TAG, "failed to initialize HTTP client");
         return;
     }
 
@@ -120,7 +120,7 @@ esp_err_t wifi_send_image(const uint8_t* image_data, size_t length) {
 
     esp_err_t err = esp_http_client_set_post_field(s_http_client, (const char*) image_data, length);
     if (err != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to set post field: %s", esp_err_to_name(err));
+        ESP_LOGE(TAG, "failed to set post field: %s", esp_err_to_name(err));
         return err;
     }
 
