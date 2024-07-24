@@ -6,7 +6,6 @@
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/CMakeFiles/erase_flash.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/CMakeFiles/uf2.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/CMakeFiles/uf2-app.dir
-/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/CMakeFiles/merge-bin.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/CMakeFiles/monitor.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/CMakeFiles/_project_elf_src.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/CMakeFiles/bootloader.elf.dir
@@ -63,8 +62,6 @@
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support/CMakeFiles/rebuild_cache.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support/port/esp32s3/CMakeFiles/edit_cache.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support/port/esp32s3/CMakeFiles/rebuild_cache.dir
-/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support/lowpower/CMakeFiles/edit_cache.dir
-/Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_hw_support/lowpower/CMakeFiles/rebuild_cache.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_common/CMakeFiles/edit_cache.dir
 /Users/joshmillar/Desktop/phd/PowerFeather/powerfeather_test_build/build/bootloader/esp-idf/esp_common/CMakeFiles/rebuild_cache.dir

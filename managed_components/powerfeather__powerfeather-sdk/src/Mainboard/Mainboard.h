@@ -603,7 +603,7 @@ namespace PowerFeather
     private:
         Mainboard() {}
 
-        static constexpr int _i2cPort = 1;
+        static constexpr int _i2cPort = 0;
         static constexpr uint32_t _i2cFreq = 100000;
         static constexpr uint32_t _i2cTimeout = 1000;
 

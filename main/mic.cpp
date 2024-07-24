@@ -56,7 +56,7 @@ size_t mic_read(int16_t* samples, size_t max_samples) {
             // printf("Sample %zu: %d\n", sample_index, samples[sample_index]);
             count--;
         }
-        vTaskDelay(pdMS_TO_TICKS(10));
+        // vTaskDelay(pdMS_TO_TICKS(10));
     }
 
     return sample_index;
