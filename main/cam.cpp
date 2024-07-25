@@ -3,7 +3,8 @@
 
 static const char *TAG = "camera";
 
-static camera_config_t camera_config = {
+static camera_config_t camera_config = 
+{
     .pin_pwdn = CAM_PIN_PWDN,
     .pin_reset = CAM_PIN_RESET,
     .pin_xclk = CAM_PIN_XCLK,
