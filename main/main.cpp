@@ -432,7 +432,7 @@ void loop() {
                 return;
             }
 
-            start_time = esp_timer_get_time();
+            int64_t start_time = esp_timer_get_time();
             // printf("\nrecording...\n");
             while (esp_timer_get_time() - start_time < RECORD_DURATION_SECONDS * 1000000) 
             {
