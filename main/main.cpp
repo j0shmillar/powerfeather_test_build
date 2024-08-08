@@ -1,6 +1,10 @@
 #include <freertos/FreeRTOS.h>
-#include <driver/gpio.h>
 #include <driver/rtc_io.h>
+#include <driver/gpio.h>
+#include <driver/uart.h>
+#include <string.h>
+#include <sys/time.h>
+#include <sdkconfig.h>
 
 #include <PowerFeather.h>
 #include <esp_camera.h>
@@ -8,25 +12,22 @@
 #include <esp_sleep.h>
 #include <esp_timer.h>
 #include <esp_wifi.h>
-#include <esp_dsp.h>
 #include <esp_pm.h>
 
 #include "cam.h"
 #include "mic.h"
 #include "wifi.h"
 #include "Q.h"
-#include "birdnet.h"
-#include "goertzel.cpp"
+#include "L76X.h"
+#include "detector.h"
 #include "dsps_fft2r.h"
+#include "goertzel.cpp"
 
 #include "tensorflow/lite/micro/micro_log.h"
 #include "tensorflow/lite/micro/kernels/micro_ops.h"
 #include "tensorflow/lite/micro/micro_interpreter.h"
 #include "tensorflow/lite/schema/schema_generated.h"
 #include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
-
-
-#include <sys/time.h>
 
 //TODO 
 // - I drops post cam wake up to ~70uA then increase to ~90uA ... why?
@@ -76,6 +77,15 @@ float ACTIONS[NUM_ACTIONS] = {3, 5, 60, 300, 600, 1800};
 float epsilon = 0.3;
 float learning_rate = 0.1;
 float discount_factor = 0.9;
+
+#define UART_NUM UART_NUM_1
+#define BUF_SIZE (1024)
+#define BAUD_RATE 9600
+#define TXD_PIN (GPIO_NUM_44)
+#define RXD_PIN (GPIO_NUM_42)
+GNRMC GPS1;
+Coordinates B_GPS;
+char buff_G[800] = {0};
 
 typedef struct 
 {
@@ -346,10 +356,12 @@ void loop() {
 
             sleep_config();
 
-            // update_hour();
+            update_hour();
             // int8_t period = now();
             // q_update(period, duration);
             // duration = get_sleep_duration(period);
+            // esp_deep_sleep(duration * 1000000);
+
             esp_deep_sleep(10 * 1000000);
         }
         else
@@ -433,7 +445,7 @@ void loop() {
             }
 
             int64_t start_time = esp_timer_get_time();
-            // printf("\nrecording...\n");
+            // // printf("\nrecording...\n");
             while (esp_timer_get_time() - start_time < RECORD_DURATION_SECONDS * 1000000) 
             {
                 // printf("%d\n", total_samples_read);
@@ -463,14 +475,37 @@ void loop() {
 
             sleep_config();
 
-            // update_hour();
+            update_hour();
             // int8_t period = now();
             // // q_update(period, duration);
             // duration = get_sleep_duration(period);
+            // esp_deep_sleep(duration * 1000000);
 
             esp_deep_sleep(10 * 1000000);
+
+            // GPS1 = L76X_Gat_GNRMC();
+            // printf("\r\n");
+            // printf("time: %02d:%02d:%02d\r\n", GPS1.Time_H, GPS1.Time_M, GPS1.Time_S);
+            // printf("lat: %.7f\n", GPS1.Lat);
+            // printf("lon: %.7f\n", GPS1.Lon);
+            // vTaskDelay(pdMS_TO_TICKS(1000));
         }
     }
+}
+
+void uart_init()
+{
+    uart_config_t uart_config = 
+    {
+        .baud_rate = 9600,
+        .data_bits = UART_DATA_8_BITS,
+        .parity    = UART_PARITY_DISABLE,
+        .stop_bits = UART_STOP_BITS_1,
+        .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
+    };
+    uart_driver_install(UART_NUM_1, 1024 * 2, 0, 0, NULL, 0);
+    uart_param_config(UART_NUM_1, &uart_config);
+    uart_set_pin(UART_NUM_1, TXD_PIN, RXD_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE); 
 }
 
 extern "C" void app_main()
@@ -478,6 +513,13 @@ extern "C" void app_main()
     rtc_gpio_init(PIR);
     rtc_gpio_set_direction(PIR, RTC_GPIO_MODE_INPUT_ONLY); 
     rtc_gpio_wakeup_enable(PIR, GPIO_INTR_HIGH_LEVEL);
+
+    // uart_init();
+    // L76X_Send_Command(SET_NMEA_BAUDRATE_9600);
+    // L76X_Send_Command(SET_POS_FIX_400MS);
+    // L76X_Send_Command(SET_NMEA_OUTPUT);
+    // printf("uart init at baud rate: %d\n", BAUD_RATE);
+    // vTaskDelay(pdMS_TO_TICKS(1000));
 
     if (PowerFeather::Board.init(BATTERY_CAPACITY) == PowerFeather::Result::Ok)
     {

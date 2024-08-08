@@ -40,7 +40,7 @@ static const char* TAG = "sccb";
 #if CONFIG_SCCB_HARDWARE_I2C_PORT1
 const int SCCB_I2C_PORT_DEFAULT = 1;
 #else
-const int SCCB_I2C_PORT_DEFAULT = 1;
+const int SCCB_I2C_PORT_DEFAULT = 0;
 #endif
 
 static int sccb_i2c_port;
