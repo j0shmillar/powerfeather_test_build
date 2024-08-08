@@ -16,7 +16,7 @@ GNRMC GPS;
 
 static double transformLat(double x,double y)
 {
-	double ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 *sqrt(abs(x));
+    double ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 *sqrt(abs(x));
     ret += (20.0 * sin(6.0 * x * pi) + 20.0 * sin(2.0 * x * pi)) * 2.0 / 3.0;
     ret += (20.0 * sin(y * pi) + 40.0 * sin(y / 3.0 * pi)) * 2.0 / 3.0;
     ret += (160.0 * sin(y / 12.0 * pi) + 320 * sin(y * pi / 30.0)) * 2.0 / 3.0;
@@ -25,7 +25,7 @@ static double transformLat(double x,double y)
 
 static double transformLon(double x,double y)
 {
-	double ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * sqrt(abs(x));
+    double ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * sqrt(abs(x));
     ret += (20.0 * sin(6.0 * x * pi) + 20.0 * sin(2.0 * x * pi)) * 2.0 / 3.0;
     ret += (20.0 * sin(x * pi) + 40.0 * sin(x / 3.0 * pi)) * 2.0 / 3.0;
     ret += (150.0 * sin(x / 12.0 * pi) + 300.0 * sin(x / 30.0 * pi)) * 2.0 / 3.0;
@@ -47,7 +47,7 @@ static Coordinates bd_encrypt(Coordinates gg)
 // WGS-84 -> GCJ-02 
 static Coordinates transform(Coordinates gps)
 {
-	Coordinates gg;
+    Coordinates gg;
     double dLat = transformLat(gps.Lon - 105.0, gps.Lat - 35.0);
     double dLon = transformLon(gps.Lon - 105.0, gps.Lat - 35.0);
     double radLat = gps.Lat / 180.0 * pi;
@@ -58,7 +58,7 @@ static Coordinates transform(Coordinates gps)
     dLon = (dLon * 180.0) / (a / sqrtMagic * cos(radLat) * pi);
     gg.Lat = gps.Lat + dLat;
     gg.Lon = gps.Lon + dLon;
-	return gg;
+    return gg;
 }
 
 void DEV_Uart_SendString(char *data)
@@ -87,7 +87,7 @@ void L76X_Send_Command(char *data)
     }
     Check_char[0] = Temp[Check/16%16];
     Check_char[1] = Temp[Check%16];
-	Check_char[2] = '\0';
+    Check_char[2] = '\0';
     DEV_Uart_SendString(data);
     DEV_Uart_SendByte('*');
     DEV_Uart_SendString(Check_char);
@@ -108,8 +108,8 @@ GNRMC L76X_Gat_GNRMC()
     uint32_t Time = 0, latitude = 0, longitude = 0;
 
     GPS.Status = 0;
-
-	GPS.Time_H = 0;
+    
+    GPS.Time_H = 0;
     GPS.Time_M = 0;
     GPS.Time_S = 0;
 	
@@ -156,7 +156,9 @@ GNRMC L76X_Gat_GNRMC()
                         if(buff_t[add+z+1] == 'A')
                         {
                              GPS.Status = 1;
-                        }else{
+                        }
+                        else
+                        {
                              GPS.Status = 0;
                         }
                     }
@@ -207,7 +209,7 @@ GNRMC L76X_Gat_GNRMC()
         if(buff_t[add+5] == '\0')
         {
             add = 0;
-			break;
+            break;
         }
         add++;
         if(add > BUFFSIZE)
