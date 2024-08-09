@@ -483,6 +483,7 @@ void loop() {
 
             esp_deep_sleep(10 * 1000000);
 
+            // // TODO figure out how to use L76X sleep mode, can't use 3v3 direct if power sharing 
             // GPS1 = L76X_Gat_GNRMC();
             // printf("\r\n");
             // printf("time: %02d:%02d:%02d\r\n", GPS1.Time_H, GPS1.Time_M, GPS1.Time_S);

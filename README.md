@@ -19,15 +19,15 @@ Camera
 - 3v3 -> 3v3, GND -> GND1
 - Leave RET and PWDN unconnected
 
+GPS
+- TX -> RX, RX -> TX, GND -> GND1, VDD -> 3v3
+
 Mic
 - GPIO pin layout in ```mic.h```
 - VDD -> EN, GND -> GND2
 
 PIR
 - VDD -> VBAT*, GND -> GND2, SD->D13
-
-GPS
-- TX -> RX, RX -> TX, GND -> GND2, VDD -> QON
 
 ## Notes
 - PowerFeather only has 2 GND.
